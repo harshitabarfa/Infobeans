@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function addToCart(cart, item) {
+            cart.push(item);
+            return cart;
+        }
+
+        function removeFromCart(cart, itemName) {
+            return cart.filter(item => item.name !== itemName);
+        }
+
+        let healthyItems = ['Apple', 'Banana', 'Mango', 'Grapes']
+        let isHealthy = (itemName) => healthyItems.includes(itemName);
+
+        function calculateTotal(cart, taxRate = 0.05) {
+            let total = 0;
+
+            cart.forEach(item => {
+                total += item.price;
+            })
+
+            return total + (total * taxRate);
+        }
+
+        function applyDiscount(total, discount = 0.1) {
+            return total - (total * discount);
+        }
+
+        function addBulkItems(cart, ...items) {
+            items.forEach(item => items.push(item));
+            return cart;
+        }
+
+        let cart = [];
+
+        addToCart(cart, { name: 'apple', price: 2 });
+        addToCart(cart, { name: 'chips', price: 2.5 })
+
+        addBulkItems(cart,
+            { name: "banana", price: 1 },
+            { name: "milk", price: 2.5 }
+        );
+
+        console.log("Cart: ", cart, "<br>");
+
+        cart = removeFromCart(cart, 'chips');
+        console.log("After removal: ", cart, "<br>");
+
+        document.writeln("Is 'apple' healthy? ", isHealthy('Apple'), "<br>");
+
+        let total = calculateTotal(cart);
+        document.writeln("Total with tax: ", total, "<br>");
+
+        let discountTotal = applyDiscount(total);
+        document.writeln("Total after discount: ", discountTotal.toFixed(2));
+    </script>
+</body>
+
+</html>

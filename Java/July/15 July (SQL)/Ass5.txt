@@ -1,0 +1,107 @@
+➡️CREATE TABLE orders 
+(
+order_id INT,
+customer_name VARCHAR(50),
+order_date DATE,
+amount DECIMAL(10,2),
+status VARCHAR(20)
+);
+Query OK, 0 rows affected (0.04 sec)
+
+➡️INSERT INTO orders (order_id, customer_name, order_date, amount, status) VALUES
+(1, 'Ravi Kumar', '2025-07-01', 750.00, 'Shipped'),
+(2, 'Anita Mehta', '2025-07-03', 200.00, 'Pending'),
+(3, 'Suresh Rai', '2025-06-28', 1200.00, 'Delivered'),
+(4, 'Neha Verma', '2025-07-05', 90.00, 'Cancelled'),
+(5, 'Karan Singh', '2025-06-30', 450.00, 'Pending'),
+(6, 'Pooja Jain', '2025-07-02', 300.00, 'Returned');
+Query OK, 6 rows affected (0.01 sec)
+Records: 6  Duplicates: 0  Warnings: 0
+
+➡️UPDATE orders
+SET status = 'Delivered'
+WHERE amount > 500 AND status = 'Shipped';
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+➡️UPDATE orders
+SET status = 'processing'
+WHERE status = 'pending' or amount < 300;
+Query OK, 3 rows affected (0.01 sec)
+Rows matched: 3  Changed: 3  Warnings: 0
+
+➡️delete from orders where status = 'cancelled';
+Query OK, 0 rows affected (0.00 sec)
+
+➡️DELETE FROM orders WHERE amount < 100 OR status = 'Returned';
+Query OK, 2 rows affected (0.01 sec)
+
+➡️alter table orders add column payment_mode varchar(30);
+Query OK, 0 rows affected (0.04 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+➡️UPDATE orders SET payment_mode = 'UPI' WHERE order_id = 1;
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+UPDATE orders SET payment_mode = 'Cash' WHERE order_id = 3;
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+UPDATE orders SET payment_mode = 'Card' WHERE order_id = 5;
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+➡️ALTER TABLE orders ADD COLUMN delivery_city VARCHAR(30);
+Query OK, 0 rows affected (0.03 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+➡️UPDATE orders SET delivery_city = 'Delhi' WHERE order_id = 1;
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+UPDATE orders SET delivery_city = 'Mumbai' WHERE order_id = 3;
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+UPDATE orders SET delivery_city = 'Delhi' WHERE order_id = 5;
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+➡️alter table orders modify column amount decimal(12,4);
+Query OK, 4 rows affected (0.07 sec)
+Records: 4  Duplicates: 0  Warnings: 0
+
+➡️alter table orders drop column order_date;
+Query OK, 0 rows affected (0.03 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+➡️RENAME TABLE orders TO customer_orders;
+Query OK, 0 rows affected (0.02 sec)
+
+➡️delete from customer_orders where payment_mode = 'cash' and amount >1000;
+Query OK, 1 row affected (0.02 sec)
+
+➡️update customer_orders set status = 'confirmed' where delivery_city = 'delhi' and status = 'processing';
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+➡️select * from customer_orders;
++----------+---------------+----------+------------+--------------+---------------+
+| order_id | customer_name | amount   | status     | payment_mode | delivery_city |
++----------+---------------+----------+------------+--------------+---------------+
+|        1 | Ravi Kumar    | 750.0000 | Delivered  | UPI          | Delhi         |
+|        2 | Anita Mehta   | 200.0000 | processing | NULL         | NULL          |
+|        5 | Karan Singh   | 450.0000 | confirmed  | Card         | Delhi         |
++----------+---------------+----------+------------+--------------+---------------+
+3 rows in set (0.00 sec)
+
+
+
+
+
+
+
+
+
+

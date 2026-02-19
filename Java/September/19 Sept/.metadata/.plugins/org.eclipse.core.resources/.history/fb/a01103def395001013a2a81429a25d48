@@ -1,0 +1,295 @@
+package com.info.EmployeeManagementSystem;
+
+import java.util.List;
+import java.util.Scanner;
+
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.EntityManagerFactory;
+import jakarta.persistence.Persistence;
+import jakarta.persistence.Query;
+
+public class App {
+	public static void main(String[] args) {
+		System.out.println("Hello World!");
+
+		EntityManagerFactory factory = Persistence.createEntityManagerFactory("MyUnit");
+		EntityManager em = factory.createEntityManager();
+
+		Scanner sc = new Scanner(System.in);
+		int choice;
+
+		do {
+			System.out.println("\n---Employee Management System---");
+			System.out.println("1. Insert a new Employee");
+			System.out.println("2. Display all Employees");
+			System.out.println("3. Find Employee by ID");
+			System.out.println("4. Search Employees by Department (partial)");
+			System.out.println("5. Update Employee Salary by ID");
+			System.out.println("6. Delete Employee by ID");
+			System.out.println("7. Find Employees with Salary greater than value");
+			System.out.println("8. Count Employees in Department");
+			System.out.println("9. Find Employee with Highest Salary");
+			System.out.println("10. Find Employee with Lowest Salary");
+			System.out.println("11. Display Employees joined after a Year");
+			System.out.println("12. Display Employees ordered by Salary (descending)");
+			System.out.println("13. Find Average Salary in each Department");
+			System.out.println("14. Find Total Salary Expense of Company");
+			System.out.println("15. Increase Salary by 10% in Department");
+			System.out.println("16. Delete Employees with Salary < value");
+			System.out.println("17. Find Employees whose names start with letter");
+			System.out.println("18. Find distinct Departments");
+			System.out.println("19. Group Employees by Department with count");
+			System.out.println("20. Employees who joined in earliest year");
+			System.out.println("0. Exit");
+
+			System.out.println("\nEnter your choice: ");
+			choice = sc.nextInt();
+			sc.nextLine();
+
+			switch (choice) {
+			case 1:
+				insertEmployee(em, sc);
+				break;
+			case 2:
+				displayAllEmployees(em);
+				break;
+			case 3:
+				findEmployeeById(em, sc);
+				break;
+			case 4:
+				searchEmployeesByDept(em, sc);
+				break;
+			case 5:
+				updateSalaryById(em, sc);
+				break;
+			case 6:
+				deleteEmployeeById(em, sc);
+				break;
+			case 7:
+				employeesWithSalaryGreater(em, sc);
+				break;
+			case 8:
+				countEmployeesInDept(em, sc);
+				break;
+			case 9:
+				highestSalaryEmployee(em);
+				break;
+			case 10:
+				lowestSalaryEmployee(em);
+				break;
+			case 11:
+				employeesJoinedAfterYear(em, sc);
+				break;
+			case 12:
+				employeesOrderedBySalary(em);
+				break;
+			case 13:
+				averageSalaryByDept(em);
+				break;
+			case 14:
+				totalSalaryExpense(em);
+				break;
+			case 15:
+				increaseSalaryByDept(em, sc);
+				break;
+			case 16:
+				deleteEmployeesWithLowSalary(em, sc);
+				break;
+			case 17:
+				employeesNameStartsWith(em, sc);
+				break;
+			case 18:
+				distinctDepartments(em);
+				break;
+			case 19:
+				employeesGroupedByDept(em);
+				break;
+			case 20:
+				employeesWithEarliestJoining(em);
+				break;
+			case 0:
+				System.out.println("Exiting...");
+				break;
+			default:
+				System.out.println("Invalid choice!");
+			}
+		} while (choice != 0);
+		em.close();
+		factory.close();
+	}
+
+	private static void insertEmployee(EntityManager em, Scanner sc) {
+		System.out.println("Enter name: ");
+		String name = sc.next();
+
+		System.out.println("Enter department: ");
+		String dept = sc.next();
+
+		System.out.println("Enter designation: ");
+		String design = sc.next();
+
+		System.out.println("Enter salary: ");
+		double salary = sc.nextDouble();
+
+		System.out.println("Enter joining year: ");
+		int year = sc.nextInt();
+
+		Employee e = new Employee();
+		e.setName(name);
+		e.setDepartment(dept);
+		e.setDesignation(design);
+		e.setSalary(salary);
+		e.setJoiningYear(year);
+
+		em.getTransaction().begin();
+		em.persist(e);
+		em.getTransaction().commit();
+		System.out.println("Employee added!");
+	}
+
+	private static void displayAllEmployees(EntityManager em) {
+		Query q = em.createQuery("from Employee");
+		List<Employee> l = q.getResultList();
+		for (Employee e : l) {
+			System.out.println(e);
+		}
+	}
+
+	private static void findEmployeeById(EntityManager em, Scanner sc) {
+		System.out.println("Enter id: ");
+		int id = sc.nextInt();
+		sc.nextLine();
+
+		Query q = em.createQuery("from Employee where id = :id");
+		q.setParameter("id", id);
+
+		List<Employee> l = q.getResultList();
+		for (Employee e : l) {
+			System.out.println(e);
+		}
+	}
+
+	private static void searchEmployeesByDept(EntityManager em, Scanner sc) {
+		System.out.println("Enter department: ");
+		String dept = sc.nextLine();
+
+		Query q = em.createQuery("from Employee where department like :dept");
+		q.setParameter("dept", "%" + dept + "%");
+
+		List<Employee> l = q.getResultList();
+		for (Employee e : l) {
+			System.out.println(e);
+		}
+	}
+
+	private static void updateSalaryById(EntityManager em, Scanner sc) {
+		em.getTransaction().begin();
+		System.out.println("Enter id: ");
+		int id = sc.nextInt();
+		sc.nextLine();
+
+		System.out.print("Enter new salary: ");
+		double salary = sc.nextDouble();
+
+		Query q = em.createQuery("update Employee set salary = :salary where id = :id");
+		q.setParameter("salary", salary);
+		q.setParameter("id", id);
+
+		int result = q.executeUpdate();
+		if (result > 0) {
+			System.out.println("Updated successfully!");
+		} else {
+			System.out.println("Not found!");
+		}
+		em.getTransaction().commit();
+	}
+
+	private static void deleteEmployeeById(EntityManager em, Scanner sc) {
+		//em.getTransaction().begin();
+		System.out.println("Enter id: ");
+		int id = sc.nextInt();
+		sc.nextLine();
+
+		String q = "delete from Employee e where e.id = :id";
+		Query query = em.createQuery(q);
+		query.setParameter("id", id);
+
+		int x = query.executeUpdate();
+		if (x > 0) {
+			System.out.println("Employee deleted successfully!");
+		} else {
+			System.out.println("Employee not found!");
+		}
+		//em.getTransaction().commit();
+	}
+
+	private static void employeesWithSalaryGreater(EntityManager em, Scanner sc) {
+		// TODO Auto-generated method stub
+
+	}
+
+	private static void countEmployeesInDept(EntityManager em, Scanner sc) {
+		// TODO Auto-generated method stub
+
+	}
+
+	private static void highestSalaryEmployee(EntityManager em) {
+		// TODO Auto-generated method stub
+
+	}
+
+	private static void lowestSalaryEmployee(EntityManager em) {
+		// TODO Auto-generated method stub
+
+	}
+
+	private static void employeesJoinedAfterYear(EntityManager em, Scanner sc) {
+		// TODO Auto-generated method stub
+
+	}
+
+	private static void employeesOrderedBySalary(EntityManager em) {
+		// TODO Auto-generated method stub
+
+	}
+
+	private static void averageSalaryByDept(EntityManager em) {
+		// TODO Auto-generated method stub
+
+	}
+
+	private static void totalSalaryExpense(EntityManager em) {
+		// TODO Auto-generated method stub
+
+	}
+
+	private static void increaseSalaryByDept(EntityManager em, Scanner sc) {
+		// TODO Auto-generated method stub
+
+	}
+
+	private static void deleteEmployeesWithLowSalary(EntityManager em, Scanner sc) {
+		// TODO Auto-generated method stub
+
+	}
+
+	private static void employeesNameStartsWith(EntityManager em, Scanner sc) {
+		// TODO Auto-generated method stub
+
+	}
+
+	private static void distinctDepartments(EntityManager em) {
+		// TODO Auto-generated method stub
+
+	}
+
+	private static void employeesGroupedByDept(EntityManager em) {
+		// TODO Auto-generated method stub
+
+	}
+
+	private static void employeesWithEarliestJoining(EntityManager em) {
+		// TODO Auto-generated method stub
+
+	}
+}

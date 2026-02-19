@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var arr = ['Ravi', 'Anjali', 'Raj', 'Ramesh', 'Ankita']
+        function filter(letter) {
+            var c = arr.filter(contact => contact[0].toUpperCase() === letter.toUpperCase());
+
+            document.writeln("Contacts starting with '" + letter + "': " + c.join(", ") + "<br>");
+            return c.length;
+        }
+
+        var count = filter('R');
+        document.writeln("Number of contacts starting with 'R': " + count);
+    </script>
+</body>
+
+</html>

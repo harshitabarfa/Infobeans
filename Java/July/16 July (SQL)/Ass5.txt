@@ -1,0 +1,90 @@
+➡️create table customer
+    -> (
+    -> customer_id int primary key auto_increment,
+    -> customer_name varchar(50),
+    -> city varchar(50),
+    -> membership_type varchar(20)
+    -> );
+Query OK, 0 rows affected (0.02 sec)
+
+
+➡️insert into customer(customer_name, city, membership_type) values
+    -> ('Alice', 'New York', 'Gold'),
+    -> ('John', 'Los Angeles', 'Silver'),
+    -> ('Michael', 'Chicago', 'Platinum'),
+    -> ('Sophia', 'New York', 'Platinum'),
+    -> ('Daniel', 'Miami', 'Gold'),
+    -> ('Emily', 'Los Angeles', 'Gold'),
+    -> ('James', 'Chicago', 'Silver'),
+    -> ('Grace', 'Dallas', 'Platinum'),
+    -> ('David', 'New York', 'Silver'),
+    -> ('Olivia', 'Los Angeles', 'Gold');
+Query OK, 10 rows affected (0.00 sec)
+Records: 10  Duplicates: 0  Warnings: 0
+
+
+➡️select * from customer;
++-------------+---------------+-------------+-----------------+
+| customer_id | customer_name | city        | membership_type |
++-------------+---------------+-------------+-----------------+
+|           1 | Alice         | New York    | Gold            |
+|           2 | John          | Los Angeles | Silver          |
+|           3 | Michael       | Chicago     | Platinum        |
+|           4 | Sophia        | New York    | Platinum        |
+|           5 | Daniel        | Miami       | Gold            |
+|           6 | Emily         | Los Angeles | Gold            |
+|           7 | James         | Chicago     | Silver          |
+|           8 | Grace         | Dallas      | Platinum        |
+|           9 | David         | New York    | Silver          |
+|          10 | Olivia        | Los Angeles | Gold            |
++-------------+---------------+-------------+-----------------+
+10 rows in set (0.00 sec)
+
+
+➡️select * from customer where city in ('New York', 'Los Angeles', 'Chicago');
++-------------+---------------+-------------+-----------------+
+| customer_id | customer_name | city        | membership_type |
++-------------+---------------+-------------+-----------------+
+|           1 | Alice         | New York    | Gold            |
+|           2 | John          | Los Angeles | Silver          |
+|           3 | Michael       | Chicago     | Platinum        |
+|           4 | Sophia        | New York    | Platinum        |
+|           6 | Emily         | Los Angeles | Gold            |
+|           7 | James         | Chicago     | Silver          |
+|           9 | David         | New York    | Silver          |
+|          10 | Olivia        | Los Angeles | Gold            |
++-------------+---------------+-------------+-----------------+
+8 rows in set (0.00 sec)
+
+
+➡️select * from customer where membership_type in ('Gold', 'Platinum', 'Silver');
++-------------+---------------+-------------+-----------------+
+| customer_id | customer_name | city        | membership_type |
++-------------+---------------+-------------+-----------------+
+|           1 | Alice         | New York    | Gold            |
+|           2 | John          | Los Angeles | Silver          |
+|           3 | Michael       | Chicago     | Platinum        |
+|           4 | Sophia        | New York    | Platinum        |
+|           5 | Daniel        | Miami       | Gold            |
+|           6 | Emily         | Los Angeles | Gold            |
+|           7 | James         | Chicago     | Silver          |
+|           8 | Grace         | Dallas      | Platinum        |
+|           9 | David         | New York    | Silver          |
+|          10 | Olivia        | Los Angeles | Gold            |
++-------------+---------------+-------------+-----------------+
+10 rows in set (0.00 sec)
+
+
+➡️select * from customer where customer_name in ('Alice', 'John', 'Michael');
++-------------+---------------+-------------+-----------------+
+| customer_id | customer_name | city        | membership_type |
++-------------+---------------+-------------+-----------------+
+|           1 | Alice         | New York    | Gold            |
+|           2 | John          | Los Angeles | Silver          |
+|           3 | Michael       | Chicago     | Platinum        |
++-------------+---------------+-------------+-----------------+
+3 rows in set (0.00 sec)
+
+
+
+

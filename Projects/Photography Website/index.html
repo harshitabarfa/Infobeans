@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyPhotography - Home</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .hero {
+            height: 100vh;
+            background: url("https://images.pexels.com/photos/1949698/pexels-photo-1949698.jpeg") center/cover no-repeat;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: #fff;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.55);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .about-box {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .about-box img {
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+        }
+
+        .card {
+            border: none;
+            border-radius: 15px;
+            overflow: hidden;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+
+        .card img {
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+        }
+
+        .gallery-img {
+            overflow: hidden;
+            border-radius: 12px;
+        }
+
+        .gallery-img img {
+            transition: transform 0.5s ease;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .gallery-img:hover img {
+            transform: scale(1.1);
+        }
+
+        footer {
+            background: linear-gradient(135deg, #111, #222);
+            color: #bbb;
+            padding: 20px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top shadow">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="index.html">MyPhotography</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
+                    <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="hero">
+        <div class="hero-content">
+            <h1 class="display-3 fw-bold">Capturing Moments, Creating Stories</h1>
+            <p class="lead">Professional Photography Portfolio</p>
+            <a href="gallery.html" class="btn btn-light btn-lg mt-3">View Gallery</a>
+        </div>
+    </div>
+
+    <section class="container my-5">
+        <div class="row align-items-center about-box">
+            <div class="col-md-6 mb-4 mb-md-0">
+                <img src="https://images.pexels.com/photos/1728163/pexels-photo-1728163.jpeg" class="img-fluid rounded">
+            </div>
+            <div class="col-md-6 text-center text-md-start">
+                <h2>About Me</h2>
+                <p class="text-muted">I am a professional photographer specializing in portraits, weddings, and creative
+                    shoots.
+                    My mission is to tell stories through powerful visuals and timeless memories.</p>
+                <a href="about.html" class="btn btn-dark">Learn More</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="container my-5">
+        <h2 class="text-center mb-4">My Services</h2>
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="card shadow h-100">
+                    <img src="https://images.pexels.com/photos/265947/pexels-photo-265947.jpeg" class="card-img-top">
+                    <div class="card-body text-center">
+                        <h5 class="fw-bold">Wedding Photography</h5>
+                        <p>Timeless shots of your most special day.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card shadow h-100">
+                    <img src="https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg" class="card-img-top">
+                    <div class="card-body text-center">
+                        <h5 class="fw-bold">Portrait Photography</h5>
+                        <p>Creative portraits that capture personality.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card shadow h-100">
+                    <img src="https://images.pexels.com/photos/167832/pexels-photo-167832.jpeg" class="card-img-top">
+                    <div class="card-body text-center">
+                        <h5 class="fw-bold">Event Coverage</h5>
+                        <p>From birthdays to concerts, I cover it all.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="container my-5">
+        <h2 class="text-center mb-4">Featured Work</h2>
+        <div class="row g-4">
+            <div class="col-md-4 gallery-img"><img
+                    src="https://images.pexels.com/photos/2510428/pexels-photo-2510428.jpeg" class="img-fluid shadow">
+            </div>
+            <div class="col-md-4 gallery-img"><img
+                    src="https://images.pexels.com/photos/33561911/pexels-photo-33561911.jpeg" class="img-fluid shadow">
+            </div>
+            <div class="col-md-4 gallery-img"><img
+                    src="https://images.pexels.com/photos/7205933/pexels-photo-7205933.jpeg" class="img-fluid shadow">
+            </div>
+        </div>
+        <div class="text-center mt-4">
+            <a href="gallery.html" class="btn btn-outline-dark">See Full Gallery</a>
+        </div>
+    </section>
+
+    <footer class="text-center">
+        <p>&copy; 2025 MyPhotography | All Rights Reserved</p>
+    </footer>
+
+</body>
+
+</html>

@@ -1,0 +1,23 @@
+➡️create table employees (emp_id int, emp_name varchar(100), gender varchar(10), dob date, department varchar(100), position varchar(100), salary decimal(8,2), joining_date date, phone varchar(15));
+Query OK, 0 rows affected (0.03 sec)
+
+➡️insert into employees (emp_id, emp_name, gender, dob, department, position, salary, joining_date, phone) values
+(1, 'alice johnson', 'female', '1990-04-12', 'human resources', 'hr manager', 75000.00, '2018-06-01', '555-123-4567'),
+(2, 'michael smith', 'male', '1985-11-30', 'it', 'software engineer', 85000.00, '2019-01-15', '555-234-5678'),
+(3, 'priya patel', 'female', '1992-07-22', 'finance', 'accountant', 67000.00, '2020-03-10', '555-345-6789'),
+(4, 'david lee', 'male', '1988-09-05', 'marketing', 'marketing specialist', 62000.00, '2021-08-20', '555-456-7890'),
+(5, 'sara kim', 'female', '1995-02-17', 'sales', 'sales executive', 58000.00, '2022-05-11', '555-567-8901');
+Query OK, 5 rows affected (0.01 sec)
+Records: 5  Duplicates: 0  Warnings: 0
+
+➡️select * from employees;
++--------+---------------+--------+------------+-----------------+----------------------+----------+--------------+--------------+
+| emp_id | emp_name      | gender | dob        | department      | position             | salary   | joining_date | phone        |
++--------+---------------+--------+------------+-----------------+----------------------+----------+--------------+--------------+
+|      1 | alice johnson | female | 1990-04-12 | human resources | hr manager           | 75000.00 | 2018-06-01   | 555-123-4567 |
+|      2 | michael smith | male   | 1985-11-30 | it              | software engineer    | 85000.00 | 2019-01-15   | 555-234-5678 |
+|      3 | priya patel   | female | 1992-07-22 | finance         | accountant           | 67000.00 | 2020-03-10   | 555-345-6789 |
+|      4 | david lee     | male   | 1988-09-05 | marketing       | marketing specialist | 62000.00 | 2021-08-20   | 555-456-7890 |
+|      5 | sara kim      | female | 1995-02-17 | sales           | sales executive      | 58000.00 | 2022-05-11   | 555-567-8901 |
++--------+---------------+--------+------------+-----------------+----------------------+----------+--------------+--------------+
+5 rows in set (0.00 sec)

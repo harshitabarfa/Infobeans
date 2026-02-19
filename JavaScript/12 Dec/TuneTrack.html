@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function addToPlayList(playList, songName) {
+            playList.push(songName);
+            return playList;
+        }
+
+        let removeFromPlayList = function (playList, songName) {
+            return playList.filter(song => song !== songName);
+        }
+
+        let trendingSongs = ["Perfect", "Calm Down", "Shape of You", "Believer"];
+        let isTrending = (songName) => trendingSongs.includes(songName);
+
+        function calculateDuration(durations, speed = 1) {
+            let total = durations.reduce((sum, d) => sum + d, 0);
+
+            return total / speed;
+        }
+
+        function addBulkSongs(playList, ...songs) {
+            songs.forEach(song => playList.push(song));
+            return playList;
+        }
+
+        let playList = [];
+
+        addToPlayList(playList, "Believer");
+        addToPlayList(playList, "Perfect");
+
+        addBulkSongs(playList, "Shape For You", "Calm Down");
+
+        playList = removeFromPlayList(playList, "Believer");
+
+        console.log("Is 'Believer' trending? ", isTrending("Believer"));
+
+        let durations = [3,5,4,3,2.8]
+        let totalTime = calculateDuration(durations, 1.5);
+
+        console.log("Total time: ", totalTime.toFixed(2), "minutes");
+
+        console.log("PlayList: ", playList);
+    </script>
+</body>
+
+</html>

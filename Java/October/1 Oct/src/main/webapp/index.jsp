@@ -1,0 +1,35 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Product Management</title>
+</head>
+<body>
+	<form action="Book.jsp" method="post">
+		<!-- <label for="ID">ID: </label> <input type="text" name="ID"> <br>
+		<br> <label for="Name">Name: </label> <input type="text"
+			name="Name"> <br> <br> <label for="Category">Category:
+		</label> <input type="text" name="Category"> <br> <br> <label
+			for="Price">Price: </label> <input type="text" name="Price">
+		<br> <br> <label for="Quantity">Quantity: </label> <input
+			type="text" name="Quantity"> <br> <br> -->
+
+		<label for="ID">ID: </label> <input type="text" name="ID"> <br>
+		<br> <label for="Title">Title: </label> <input type="text"
+			name="Title"> <br> <br> <label for="Author">Author:
+		</label> <input type="text" name="Author"> <br> <br> <label
+			for="Price">Price: </label> <input type="text" name="Price">
+		<br> <br> <label for="Year">Year: </label> <input
+			type="text" name="Year"> <br> <br>
+
+		<div>
+			<input type="submit" name="action" value="insert"> <input
+				type="submit" name="action" value="view"> <input
+				type="submit" name="action" value="update"> <input
+				type="submit" name="action" value="delete">
+		</div>
+	</form>
+</body>
+</html>

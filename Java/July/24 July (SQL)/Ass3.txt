@@ -1,0 +1,12 @@
+select d.DepartmentId, d.DepartmentName, e.EmployeeId, e.EmployeeName from employee e right join department d on e.DepartmentId = d.DepartmentId order by DepartmentId;
++--------------+----------------+------------+--------------+
+| DepartmentId | DepartmentName | EmployeeId | EmployeeName |
++--------------+----------------+------------+--------------+
+|            1 | IT             |        101 | Harshita     |
+|            1 | IT             |        105 | Shraddha     |
+|            2 | CS             |        102 | Mayuri       |
+|            2 | CS             |        103 | Vanshika     |
+|            3 | HR             |        104 | Raksha       |
++--------------+----------------+------------+--------------+
+
+select d.DepartmentId from department d left join employee e on d.DepartmentId = e.DepartmentId where e.EmployeeId is null;

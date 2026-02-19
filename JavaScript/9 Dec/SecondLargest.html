@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function secondLargest(arr) {
+            var max = -Infinity;
+            var second = -Infinity;
+
+            for (var num of arr) {
+                if (num > max) {
+                    second = max;
+                    max = num;
+                } else if (num > second && num !== max) {
+                    second = num;
+                }
+            }
+            return second;
+        }
+        document.writeln(secondLargest([10, 20, 4, 99, 55]));
+    </script>
+</body>
+
+</html>

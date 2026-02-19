@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='utf-8'?>
+<hibernate-configuration>
+	<session-factory>
+
+		<!-- JDBC connection settings -->
+		<property name="hibernate.connection.driver_class">
+			com.mysql.cj.jdbc.Driver</property>
+		<property name="hibernate.connection.url">
+			jdbc:mysql://localhost:3306/batch14</property>
+		<property name="hibernate.connection.username">root</property>
+		<property name="hibernate.connection.password">123456</property>
+
+		<!-- JDBC connection pool (built-in) -->
+		<property name="hibernate.connection.pool_size">10</property>
+
+		<!-- SQL Dialect (for MySQL 8+) -->
+		<property name="hibernate.dialect">org.hibernate.dialect.MySQL8Dialect</property>
+
+		<!-- Echo all executed SQL to stdout -->
+		<property name="hibernate.show_sql">true</property>
+		<property name="hibernate.format_sql">true</property>
+
+		<!-- Drop and re-create the database schema on startup -->
+		<!-- update / create / create-drop / validate -->
+		<property name="hibernate.hbm2ddl.auto">update</property>
+
+		<!-- Mention annotated classes (entities) -->
+		<mapping class="com.studentEnrollmentSystem.StudentEnrollment.StudentEnrollment"/>
+
+	</session-factory>
+</hibernate-configuration>

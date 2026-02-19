@@ -1,0 +1,109 @@
+package com.info.StudentCourse;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+import org.hibernate.boot.MetadataSources;
+import org.hibernate.boot.registry.StandardServiceRegistry;
+import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
+import org.hibernate.cfg.Configuration;
+
+import java.util.List;
+import java.util.Scanner;
+
+public class App {
+	private static SessionFactory sf;
+
+	public static void main(String[] args) {
+		System.out.println("Hello World!");
+
+		StandardServiceRegistry registry = new StandardServiceRegistryBuilder().configure("hibernate.cfg.xml").build();
+		sf = new MetadataSources(registry).buildMetadata().buildSessionFactory();
+
+		Scanner sc = new Scanner(System.in);
+		int choice;
+
+		do {
+			System.out.println("\n---Student-Course Management Menu---");
+			System.out.println("1. Add Student with Courses");
+			System.out.println("2. Add Course with Students");
+			System.out.println("3. Enroll Existing Student into Existing Course");
+			System.out.println("4. View All Students with Their Courses");
+			System.out.println("5. View All Courses with Their Students");
+			System.out.println("6. Update Course Name by Course ID");
+			System.out.println("7. Update Student Details by Student ID");
+			System.out.println("8. Exit");
+
+			System.out.print("\nEnter your choice: ");
+			choice = sc.nextInt();
+			sc.nextLine();
+
+			switch (choice) {
+			case 1:
+				addStudentWithCourses(sc);
+				break;
+			case 2:
+				addCourseWithStudents(sc);
+				break;
+			case 3:
+				enrollStudentInCourse(sc);
+				break;
+			case 4:
+				viewAllStudentsWithCourses();
+				break;
+			case 5:
+				viewAllCoursesWithStudents();
+				break;
+			case 6:
+				updateCourseName(sc);
+				break;
+			case 7:
+				updateStudentDetails(sc);
+				break;
+			case 8:
+				System.out.println("Exiting...");
+				break;
+			default:
+				System.out.println("Invalid choice!");
+			}
+		} while (choice != 8);
+
+		sf.close();
+		sc.close();
+	}
+
+	private static void addStudentWithCourses(Scanner sc) {
+		// TODO Auto-generated method stub
+
+	}
+
+	private static void addCourseWithStudents(Scanner sc) {
+		// TODO Auto-generated method stub
+
+	}
+
+	private static void enrollStudentInCourse(Scanner sc) {
+		// TODO Auto-generated method stub
+
+	}
+
+	private static void viewAllStudentsWithCourses() {
+		// TODO Auto-generated method stub
+
+	}
+
+	private static void viewAllCoursesWithStudents() {
+		// TODO Auto-generated method stub
+
+	}
+
+	private static void updateCourseName(Scanner sc) {
+		// TODO Auto-generated method stub
+
+	}
+
+	private static void updateStudentDetails(Scanner sc) {
+		// TODO Auto-generated method stub
+
+	}
+}

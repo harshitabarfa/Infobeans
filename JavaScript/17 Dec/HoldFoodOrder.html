@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var foodOrders = [
+            { dishName: "Paneer Butter Masala", isDelivered: true, isVegetarian: true },
+            { dishName: "Kaju curry", isDelivered: false, isVegetarian: false },
+            { dishName: "Veg Fried Rice", isDelivered: true, isVegetarian: true }
+        ];
+
+        foodOrders.forEach(order => {
+            if (order.isVegetarian && order.isDelivered) {
+                console.log("Your vegetarian dish", order.dishName , "has been delivered.");
+            } else if (!order.isDelivered) {
+                console.log("Your", order.dishName , "is still being prepared.");
+            }
+        });
+    </script>
+</body>
+
+</html>

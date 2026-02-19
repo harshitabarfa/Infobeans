@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="https://jakarta.ee/xml/ns/persistence"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="https://jakarta.ee/xml/ns/persistence https://jakarta.ee/xml/ns/persistence/persistence_3_0.xsd"
+	version="3.0">
+
+	<persistence-unit name="HospitalPU" transaction-type="RESOURCE_LOCAL">
+
+		<!-- Entity class -->
+		<class>com.info.HospitalManagementSystem.Patient</class>
+		<exclude-unlisted-classes>false</exclude-unlisted-classes>
+
+		<!-- DB connection properties -->
+		<properties>
+			<!-- JDBC connection -->
+			<property name="jakarta.persistence.jdbc.driver"
+				value="com.mysql.cj.jdbc.Driver" />
+			<property name="jakarta.persistence.jdbc.url"
+				value="jdbc:mysql://localhost:3306/batch14" />
+			<property name="jakarta.persistence.jdbc.user" value="root" />
+			<property name="jakarta.persistence.jdbc.password" value="123456" />
+
+			<!-- Hibernate config -->
+			<property name="hibernate.dialect"
+				value="org.hibernate.dialect.MySQLDialect" />
+			<property name="hibernate.hbm2ddl.auto" value="update" />
+			<property name="hibernate.show_sql" value="true" />
+		</properties>
+	</persistence-unit>
+</persistence>

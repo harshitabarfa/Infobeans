@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var employees = ['Raj', '', 'Anu', null, ' ', 'Ravi', undefined];
+
+        var originalCount = employees.filter(employee => employee && employee.trim() !== '').length;
+
+        var cleanedList = employees.filter(employee => employee && employee.trim() !== '');
+
+        document.writeln("Cleaned List: ", cleanedList.join(", "), "<br>");
+
+        document.writeln("Number of valid entries originally: ", originalCount);
+    </script>
+</body>
+
+</html>

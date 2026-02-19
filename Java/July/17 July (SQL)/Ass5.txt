@@ -1,0 +1,21 @@
+➡️create table MovieTickets (ticketId int primary key auto_increment, customerName varchar(100), showTime datetime, bookTime datetime default current_timestamp);
+Query OK, 0 rows affected (0.03 sec)
+
+➡️insert into MovieTicket (CustomerName, ShowTime) values ('Alice', NOW() + INTERVAL 3 HOUR);
+Query OK, 1 row affected (0.01 sec)
+
+insert into MovieTicket (CustomerName, ShowTime) values ('Bob', NOW() + INTERVAL 1 DAY);
+Query OK, 1 row affected (0.01 sec)
+
+insert into MovieTicket (CustomerName, ShowTime) values ('Charlie', NOW() + INTERVAL 1 HOUR);
+Query OK, 1 row affected (0.01 sec)
+
+➡️select * from MovieTicket;
++----------+--------------+---------------------+---------------------+
+| ticketId | customerName | showTime            | bookTime            |
++----------+--------------+---------------------+---------------------+
+|        1 | Alice        | 2025-07-18 04:08:29 | 2025-07-18 01:08:29 |
+|        2 | Bob          | 2025-07-19 01:08:58 | 2025-07-18 01:08:58 |
+|        3 | Charlie      | 2025-07-18 02:09:12 | 2025-07-18 01:09:12 |
++----------+--------------+---------------------+---------------------+
+3 rows in set (0.00 sec)

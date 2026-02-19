@@ -1,0 +1,19 @@
+package com.example.demo.repository;
+
+import java.util.List;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+import com.example.demo.entity.Event;
+
+@Repository
+public interface EventRepository extends JpaRepository<Event, Long> {
+	List<Event> findByEventNameIgnoreCase(String eventName);
+
+	List<Event> findByLocationIgnoreCase(String location);
+
+	List<Event> findByEventTypeIgnoreCase(String eventType);
+
+	List<Event> findByStatusIgnoreCase(String status);
+}

@@ -1,0 +1,73 @@
+package com.info.VehicleManagementSystem;
+
+import jakarta.persistence.*;
+import java.util.Scanner;
+
+public class App 
+{
+    public static void main( String[] args )
+    {
+        System.out.println( "Hello World!" );
+        
+        EntityManagerFactory factory = Persistence.createEntityManagerFactory("MyUnit");
+		EntityManager em = factory.createEntityManager();
+
+		Scanner sc = new Scanner(System.in);
+		int choice;
+		
+		do {
+            System.out.println("\n---Vehicle Management Sysem---");
+            System.out.println("1. Add New Vehicle");
+            System.out.println("2. View Vehicle by ID");
+            System.out.println("3. Update Vehicle");
+            System.out.println("4. Delete Vehicle");
+            System.out.println("0. Exit");
+            
+            System.out.print("\nEnter choice: ");
+            choice = sc.nextInt();
+            sc.nextLine();
+
+            switch (choice) {
+                case 1:
+					addVehicle(em, sc);
+                	break;
+                case 2: 
+                	viewVehicle(em, sc);
+                	break;
+                case 3:
+                	updateVehicle(em, sc);
+                	break;
+                case 4:
+                	deleteVehicle(em, sc);
+                	break;
+                case 0:
+                	System.out.println("Exiting...");
+                	break;
+                default:
+                	System.out.println("Invalid choice!");
+            }
+        } while (choice != 0);
+		
+        factory.close();
+    }
+
+	private static void addVehicle(EntityManager em, Scanner sc) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	private static void viewVehicle(EntityManager em, Scanner sc) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	private static void updateVehicle(EntityManager em, Scanner sc) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	private static void deleteVehicle(EntityManager em, Scanner sc) {
+		// TODO Auto-generated method stub
+		
+	}
+}

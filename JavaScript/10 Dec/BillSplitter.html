@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var amounts = [120, 340, 150, 90, 200];
+
+        var sum = 0;
+        for (var i = 0; i < amounts.length; i++) {
+            sum += amounts[i]
+        }
+        document.writeln("Total amount spent is: ", sum, "<br>")
+
+        var average = (sum / amounts.length).toFixed(2);
+        document.writeln("Each person's share: ", average, "<br>");
+
+        document.writeln("Person who paid the highest: ", Math.max(...amounts), "<br>")
+        document.writeln("Person who paid the least: ", Math.min(...amounts));
+    </script>
+</body>
+
+</html>

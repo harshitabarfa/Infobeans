@@ -1,0 +1,31 @@
+➡️create table Events (eventId int primary key auto_increment, eventName varchar(100), eventDate date);
+Query OK, 0 rows affected (0.04 sec)
+
+➡️desc Events;
++-----------+--------------+------+-----+---------+----------------+
+| Field     | Type         | Null | Key | Default | Extra          |
++-----------+--------------+------+-----+---------+----------------+
+| eventId   | int          | NO   | PRI | NULL    | auto_increment |
+| eventName | varchar(100) | YES  |     | NULL    |                |
+| eventDate | date         | YES  |     | NULL    |                |
++-----------+--------------+------+-----+---------+----------------+
+3 rows in set (0.00 sec)
+
+➡️insert into Events (eventName, eventDate) values ('Grand show', '2026-08-06');
+Query OK, 1 row affected (0.01 sec)
+
+insert into Events (eventName, eventDate) values ('Music Festival', '2026-09-15');
+Query OK, 1 row affected (0.01 sec)
+
+insert into Events (eventName, eventDate) values ('Tech Meetup', '2026-10-05');
+Query OK, 1 row affected (0.01 sec)
+
+➡️select * from Events;
++---------+----------------+------------+
+| eventId | eventName      | eventDate  |
++---------+----------------+------------+
+|       1 | Grand show     | 2026-08-06 |
+|       2 | Music Festival | 2026-09-15 |
+|       3 | Tech Meetup    | 2026-10-05 |
++---------+----------------+------------+
+3 rows in set (0.00 sec)

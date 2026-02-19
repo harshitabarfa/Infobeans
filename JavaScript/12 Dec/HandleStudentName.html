@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let students = [];
+
+        function addStudent(name) {
+            if (students.includes(name)) {
+                alert(name + " already exists!")
+            } else {
+                students.push(name);
+                alert(name + " added.")
+            }
+        }
+
+        function viewStudent() {
+            if (students.length === 0) {
+                alert("No studnets found.")
+            } else {
+                alert("Students: \n" + students.join("\n"))
+            }
+        }
+
+        function updateStudent(oldName, newName) {
+            let index = students.indexOf(oldName);
+
+            if (index === -1) {
+                alert(oldName + " not found!")
+            } else {
+                students[index] = newName;
+                alert("Updated successfully!")
+            }
+        }
+
+        function deleteStudent(name) {
+            let index = students.indexOf(name);
+
+            if (index === -1) {
+                alert(name + " not found")
+            } else {
+                students.splice(index, 1);
+                alert(name + "remove.")
+            }
+        }
+
+        function searchStudent(name) {
+            if (students.includes(name)) {
+                alert(name + " is renrolled")
+            } else {
+                alert(name + " not found")
+            }
+        }
+
+        function countStudents() {
+            alert("Total students: " + students.length)
+        }
+
+        function sortStudents() {
+            if (students.length === 0) {
+                alert("No student to sort.")
+            } else {
+                alert("Sorted list: \n" + [...students].sort().join("\n"))
+            }
+        }
+
+        function clearAllStudents() {
+            if (confirm("Clear entire list?")) {
+                students = [];
+                alert("All studnets removed.")
+            }
+        }
+
+        let choice;
+
+        do {
+            choice = prompt("STUDENT ATTENDANCE SYSTEM\n\n" +
+                "1. Add Student\n" +
+                "2. View Students\n" +
+                "3. Update Student\n" +
+                "4. Delete Student\n" +
+                "5. Search Student\n" +
+                "6. Count Students\n" +
+                "7. Sort Students\n" +
+                "8. Clear All Students\n" +
+                "9. Exit\n\n" +
+                "Enter your choice:")
+
+            switch (choice) {
+                case "1":
+                    let n1 = prompt("Enter student name:");
+                    if (n1) addStudent(n1.trim());
+                    break;
+
+                case "2":
+                    viewStudent();
+                    break;
+
+                case "3":
+                    let oldN = prompt("Enter old name:");
+                    let newN = prompt("Enter new name:");
+                    if (oldN && newN) updateStudent(oldN.trim(), newN.trim());
+                    break;
+
+                case "4":
+                    let delN = prompt("Name to delete:");
+                    if (delN) deleteStudent(delN.trim());
+                    break;
+
+                case "5":
+                    let sea = prompt("Name to search:");
+                    if (sea) searchStudent(sea.trim());
+                    break;
+
+                case "6":
+                    countStudents();
+                    break;
+
+                case "7":
+                    sortStudents();
+                    break;
+
+                case "8":
+                    clearAllStudents();
+                    break;
+
+                case "9":
+                    alert("Exiting...");
+                    break;
+
+                default:
+                    alert("Invalid Choice!");
+            }
+        }
+        while (choice !== "9");
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function createAccount(initialBalance) {
+            let balance = initialBalance;
+
+            return {
+                deposit(amount) {
+                    balance += amount;
+                    console.log("Deposited:", amount);
+                },
+
+                withdraw(amount) {
+                    if (amount > balance) {
+                        console.log("Insufficient funds!");
+                    } else {
+                        balance -= amount;
+                        console.log("Withdrawn:", amount);
+                    }
+                },
+
+                checkBalance() {
+                    console.log("Current Balance:", balance);
+                }
+            };
+        }
+
+        let acc = createAccount(500);
+
+        acc.checkBalance();
+        acc.deposit(200);
+        acc.withdraw(100);
+        acc.checkBalance();
+
+    </script>
+</body>
+
+</html>

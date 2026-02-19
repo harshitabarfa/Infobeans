@@ -1,0 +1,111 @@
+➡️select * from Employe1 where name not like 'j%';
++----+-------+--------------+----------------------+------------+
+| id | name  | department   | email                | phone      |
++----+-------+--------------+----------------------+------------+
+|  1 | Alice | Tech Support | alice@gmail.com      | 1234567890 |
+|  2 | Bob   | Marketing    | bob@yahoo.com        | 2345678123 |
+|  3 | Anna  | Biotech      | anna@biotechmail.com | 3456712345 |
+|  4 | David | Tech         | david@hotmail.com    | 7894561230 |
+|  5 | Steve | Technology   | steve@gmail.com      | 9876511123 |
+|  6 | Nina  | Fintech      | nina@fintech.com     | 1112378123 |
+|  7 | Andy  | HR           | andy@company.com     | 5678912312 |
+|  8 | Brian | Technical    | brian@gmail.com      | 9998877123 |
+|  9 | Cindy | Sales        | cindy@aol.com        | 4445712345 |
+| 10 | Arun  | Technology   | arun@techworld.com   | 6666612312 |
++----+-------+--------------+----------------------+------------+
+10 rows in set (0.00 sec)
+
+
+➡️select * from Employe1 where department not like 'hr';
++----+-------+--------------+----------------------+------------+
+| id | name  | department   | email                | phone      |
++----+-------+--------------+----------------------+------------+
+|  1 | Alice | Tech Support | alice@gmail.com      | 1234567890 |
+|  2 | Bob   | Marketing    | bob@yahoo.com        | 2345678123 |
+|  3 | Anna  | Biotech      | anna@biotechmail.com | 3456712345 |
+|  4 | David | Tech         | david@hotmail.com    | 7894561230 |
+|  5 | Steve | Technology   | steve@gmail.com      | 9876511123 |
+|  6 | Nina  | Fintech      | nina@fintech.com     | 1112378123 |
+|  8 | Brian | Technical    | brian@gmail.com      | 9998877123 |
+|  9 | Cindy | Sales        | cindy@aol.com        | 4445712345 |
+| 10 | Arun  | Technology   | arun@techworld.com   | 6666612312 |
++----+-------+--------------+----------------------+------------+
+9 rows in set (0.00 sec)
+
+
+➡️select * from Employe1 where email not like '%yahoo%';
++----+-------+--------------+----------------------+------------+
+| id | name  | department   | email                | phone      |
++----+-------+--------------+----------------------+------------+
+|  1 | Alice | Tech Support | alice@gmail.com      | 1234567890 |
+|  3 | Anna  | Biotech      | anna@biotechmail.com | 3456712345 |
+|  4 | David | Tech         | david@hotmail.com    | 7894561230 |
+|  5 | Steve | Technology   | steve@gmail.com      | 9876511123 |
+|  6 | Nina  | Fintech      | nina@fintech.com     | 1112378123 |
+|  7 | Andy  | HR           | andy@company.com     | 5678912312 |
+|  8 | Brian | Technical    | brian@gmail.com      | 9998877123 |
+|  9 | Cindy | Sales        | cindy@aol.com        | 4445712345 |
+| 10 | Arun  | Technology   | arun@techworld.com   | 6666612312 |
++----+-------+--------------+----------------------+------------+
+9 rows in set (0.00 sec)
+
+
+➡️select * from Employe1 where phone not like '9%';
++----+-------+--------------+----------------------+------------+
+| id | name  | department   | email                | phone      |
++----+-------+--------------+----------------------+------------+
+|  1 | Alice | Tech Support | alice@gmail.com      | 1234567890 |
+|  2 | Bob   | Marketing    | bob@yahoo.com        | 2345678123 |
+|  3 | Anna  | Biotech      | anna@biotechmail.com | 3456712345 |
+|  4 | David | Tech         | david@hotmail.com    | 7894561230 |
+|  6 | Nina  | Fintech      | nina@fintech.com     | 1112378123 |
+|  7 | Andy  | HR           | andy@company.com     | 5678912312 |
+|  9 | Cindy | Sales        | cindy@aol.com        | 4445712345 |
+| 10 | Arun  | Technology   | arun@techworld.com   | 6666612312 |
++----+-------+--------------+----------------------+------------+
+8 rows in set (0.00 sec)
+
+
+➡️select * from Employe1 where name like 's%' and email like '%outlook%';
+Empty set (0.00 sec)
+
+
+➡️select * from Employe1 where (department = 'sales' or department = 'marketing') and phone like '%789';
+Empty set (0.00 sec)
+
+
+➡️select * from Employe1 where name like '%an%' and email not like '%hotmail%';
++----+-------+------------+----------------------+------------+
+| id | name  | department | email                | phone      |
++----+-------+------------+----------------------+------------+
+|  3 | Anna  | Biotech    | anna@biotechmail.com | 3456712345 |
+|  7 | Andy  | HR         | andy@company.com     | 5678912312 |
+|  8 | Brian | Technical  | brian@gmail.com      | 9998877123 |
++----+-------+------------+----------------------+------------+
+3 rows in set (0.00 sec)
+
+
+➡️select * from Employe1 where phone like '98%' or phone like '%55%';
++----+-------+------------+-----------------+------------+
+| id | name  | department | email           | phone      |
++----+-------+------------+-----------------+------------+
+|  5 | Steve | Technology | steve@gmail.com | 9876511123 |
++----+-------+------------+-----------------+------------+
+1 row in set (0.00 sec)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

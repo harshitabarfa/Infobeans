@@ -1,0 +1,35 @@
+➡️create table Patients (patientId int primary key, patientName varchar(50) not null, age int check (age between 1 and 100), admissionStatus varchar(15) default 'Admitted' check (admissionStatus in ('Admitted', 'Discharged')), treatmentCost decimal(10,2) check (treatmentCost >= 1000));
+Query OK, 0 rows affected (0.12 sec)
+
+➡️desc Patients;
++-----------------+---------------+------+-----+----------+-------+
+| Field           | Type          | Null | Key | Default  | Extra |
++-----------------+---------------+------+-----+----------+-------+
+| patientId       | int           | NO   | PRI | NULL     |       |
+| patientName     | varchar(50)   | NO   |     | NULL     |       |
+| age             | int           | YES  |     | NULL     |       |
+| admissionStatus | varchar(15)   | YES  |     | Admitted |       |
+| treatmentCost   | decimal(10,2) | YES  |     | NULL     |       |
++-----------------+---------------+------+-----+----------+-------+
+5 rows in set (0.04 sec)
+
+➡️insert into Patients values (201, 'Michael', 25, 'Admitted', 5000);
+Query OK, 1 row affected (0.02 sec)
+
+➡️insert into Patients values (202, 'Linda', 105, 'Admitted', 8000);
+ERROR 3819 (HY000): Check constraint 'patients_chk_1' is violated.
+
+➡️insert into Patients values (203, 'David', 40, DEFAULT, 1200);
+Query OK, 1 row affected (0.01 sec)
+
+➡️insert into Patients values (204, 'Sarah', 30, 'Discharged', 700);
+ERROR 3819 (HY000): Check constraint 'patients_chk_3' is violated.
+
+➡️select * from Patients;
++-----------+-------------+------+-----------------+---------------+
+| patientId | patientName | age  | admissionStatus | treatmentCost |
++-----------+-------------+------+-----------------+---------------+
+|       201 | Michael     |   25 | Admitted        |       5000.00 |
+|       203 | David       |   40 | Admitted        |       1200.00 |
++-----------+-------------+------+-----------------+---------------+
+2 rows in set (0.01 sec)

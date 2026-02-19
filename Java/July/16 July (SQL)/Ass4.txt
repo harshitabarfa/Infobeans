@@ -1,0 +1,140 @@
+➡️create table Employe2
+    -> (
+    -> id int primary key auto_increment,
+    -> name varchar(50),
+    -> age int,
+    -> salary decimal(10,2),
+    -> department varchar(50)
+    -> );
+Query OK, 0 rows affected (0.02 sec)
+
+
+➡️insert into Employe2 (name, age, salary, department) values
+    -> ('Alice', 29, 55000.00, 'HR'),
+    -> ('Bob', 34, 78000.00, 'IT'),
+    -> ('Charlie', 45, 95000.00, 'Finance'),
+    -> ('David', 39, 64000.00, 'Marketing'),
+    -> ('Eva', 31, 46000.00, 'IT'),
+    -> ('Frank', 28, 52000.00, 'HR'),
+    -> ('Grace', 23, 35000.00, 'Sales'),
+    -> ('Henry', 50, 120000.00, 'Finance'),
+    -> ('Ivy', 41, 72000.00, 'Sales'),
+    -> ('Jake', 33, 85000.00, 'IT');
+Query OK, 10 rows affected (0.01 sec)
+Records: 10  Duplicates: 0  Warnings: 0
+
+
+➡️select * from Employe2;
++----+---------+------+-----------+------------+
+| id | name    | age  | salary    | department |
++----+---------+------+-----------+------------+
+|  1 | Alice   |   29 |  55000.00 | HR         |
+|  2 | Bob     |   34 |  78000.00 | IT         |
+|  3 | Charlie |   45 |  95000.00 | Finance    |
+|  4 | David   |   39 |  64000.00 | Marketing  |
+|  5 | Eva     |   31 |  46000.00 | IT         |
+|  6 | Frank   |   28 |  52000.00 | HR         |
+|  7 | Grace   |   23 |  35000.00 | Sales      |
+|  8 | Henry   |   50 | 120000.00 | Finance    |
+|  9 | Ivy     |   41 |  72000.00 | Sales      |
+| 10 | Jake    |   33 |  85000.00 | IT         |
++----+---------+------+-----------+------------+
+10 rows in set (0.00 sec)
+
+
+➡️ select * from Employe2 where age between 25 and 40;
++----+-------+------+----------+------------+
+| id | name  | age  | salary   | department |
++----+-------+------+----------+------------+
+|  1 | Alice |   29 | 55000.00 | HR         |
+|  2 | Bob   |   34 | 78000.00 | IT         |
+|  4 | David |   39 | 64000.00 | Marketing  |
+|  5 | Eva   |   31 | 46000.00 | IT         |
+|  6 | Frank |   28 | 52000.00 | HR         |
+| 10 | Jake  |   33 | 85000.00 | IT         |
++----+-------+------+----------+------------+
+6 rows in set (0.00 sec)
+
+
+➡️select * from Employe2 where salary between 30000 and 80000;
++----+-------+------+----------+------------+
+| id | name  | age  | salary   | department |
++----+-------+------+----------+------------+
+|  1 | Alice |   29 | 55000.00 | HR         |
+|  2 | Bob   |   34 | 78000.00 | IT         |
+|  4 | David |   39 | 64000.00 | Marketing  |
+|  5 | Eva   |   31 | 46000.00 | IT         |
+|  6 | Frank |   28 | 52000.00 | HR         |
+|  7 | Grace |   23 | 35000.00 | Sales      |
+|  9 | Ivy   |   41 | 72000.00 | Sales      |
++----+-------+------+----------+------------+
+7 rows in set (0.00 sec)
+
+
+➡️select * from Employe2 where age between 30 and 50 and department = 'it';
++----+------+------+----------+------------+
+| id | name | age  | salary   | department |
++----+------+------+----------+------------+
+|  2 | Bob  |   34 | 78000.00 | IT         |
+|  5 | Eva  |   31 | 46000.00 | IT         |
+| 10 | Jake |   33 | 85000.00 | IT         |
++----+------+------+----------+------------+
+3 rows in set (0.00 sec)
+
+
+➡️select * from Employe2 where salary between 40000 and 90000 and age between 30 and 50;
++----+-------+------+----------+------------+
+| id | name  | age  | salary   | department |
++----+-------+------+----------+------------+
+|  2 | Bob   |   34 | 78000.00 | IT         |
+|  4 | David |   39 | 64000.00 | Marketing  |
+|  5 | Eva   |   31 | 46000.00 | IT         |
+|  9 | Ivy   |   41 | 72000.00 | Sales      |
+| 10 | Jake  |   33 | 85000.00 | IT         |
++----+-------+------+----------+------------+
+5 rows in set (0.00 sec)
+
+
+➡️select * from Employe2 where salary not between 25000 and 60000;
++----+---------+------+-----------+------------+
+| id | name    | age  | salary    | department |
++----+---------+------+-----------+------------+
+|  2 | Bob     |   34 |  78000.00 | IT         |
+|  3 | Charlie |   45 |  95000.00 | Finance    |
+|  4 | David   |   39 |  64000.00 | Marketing  |
+|  8 | Henry   |   50 | 120000.00 | Finance    |
+|  9 | Ivy     |   41 |  72000.00 | Sales      |
+| 10 | Jake    |   33 |  85000.00 | IT         |
++----+---------+------+-----------+------------+
+6 rows in set (0.00 sec)
+
+
+➡️select * from Employe2 where age between 22 and 35 or salary between 50000 and 100000;
++----+---------+------+----------+------------+
+| id | name    | age  | salary   | department |
++----+---------+------+----------+------------+
+|  1 | Alice   |   29 | 55000.00 | HR         |
+|  2 | Bob     |   34 | 78000.00 | IT         |
+|  3 | Charlie |   45 | 95000.00 | Finance    |
+|  4 | David   |   39 | 64000.00 | Marketing  |
+|  5 | Eva     |   31 | 46000.00 | IT         |
+|  6 | Frank   |   28 | 52000.00 | HR         |
+|  7 | Grace   |   23 | 35000.00 | Sales      |
+|  9 | Ivy     |   41 | 72000.00 | Sales      |
+| 10 | Jake    |   33 | 85000.00 | IT         |
++----+---------+------+----------+------------+
+9 rows in set (0.00 sec)
+
+
+
+
+
+
+
+
+
+
+
+
+
+

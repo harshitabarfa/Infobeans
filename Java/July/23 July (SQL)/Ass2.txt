@@ -1,0 +1,88 @@
+➡️create table doctor (doctorId int primary key auto_increment, doctorName varchar(50) not null, specialization varchar(50) unique not null);
+
+➡️desc doctor;
++----------------+-------------+------+-----+---------+----------------+
+| Field          | Type        | Null | Key | Default | Extra          |
++----------------+-------------+------+-----+---------+----------------+
+| doctorId       | int         | NO   | PRI | NULL    | auto_increment |
+| doctorName     | varchar(50) | NO   |     | NULL    |                |
+| specialization | varchar(50) | NO   | UNI | NULL    |                |
++----------------+-------------+------+-----+---------+----------------+
+
+➡️create table patient (patientId int primary key auto_increment, patientName varchar(50) not null, doctorId int not null, foreign key(doctorId) references doctor(doctorId) on delete cascade);
+
+➡️desc patient;
++-------------+-------------+------+-----+---------+----------------+
+| Field       | Type        | Null | Key | Default | Extra          |
++-------------+-------------+------+-----+---------+----------------+
+| patientId   | int         | NO   | PRI | NULL    | auto_increment |
+| patientName | varchar(50) | NO   |     | NULL    |                |
+| doctorId    | int         | NO   | MUL | NULL    |                |
++-------------+-------------+------+-----+---------+----------------+
+
+➡️ insert into doctor (doctorName, specialization) values ('Harshita', 'Cardiology'), ('Mayuri', 'Neurology');
+
+select * from doctor;
++----------+------------+----------------+
+| doctorId | doctorName | specialization |
++----------+------------+----------------+
+|        1 | Harshita   | Cardiology     |
+|        2 | Mayuri     | Neurology      |
++----------+------------+----------------+
+
+➡️insert into patient (patientName, doctorId) values ('Vanshika', '1'), ('Raksha', '2'), ('Shraddha', 1), ('Tanishq', 2), ('Naman', 1);
+
+select * from patient;
++-----------+-------------+----------+
+| patientId | patientName | doctorId |
++-----------+-------------+----------+
+|         1 | Vanshika    |        1 |
+|         2 | Raksha      |        2 |
+|         3 | Shraddha    |        1 |
+|         4 | Tanishq     |        2 |
+|         5 | Naman       |        1 |
++-----------+-------------+----------+
+
+➡️delete from doctor where doctorId = 1;
+
+select * from doctor;
++----------+------------+----------------+
+| doctorId | doctorName | specialization |
++----------+------------+----------------+
+|        2 | Mayuri     | Neurology      |
++----------+------------+----------------+
+
+➡️insert into doctor (doctorName, specialization) values ('Jayu', 'Pediatrics');
+
+select * from doctor;
++----------+------------+----------------+
+| doctorId | doctorName | specialization |
++----------+------------+----------------+
+|        2 | Mayuri     | Neurology      |
+|        3 | Jayu       | Pediatrics     |
++----------+------------+----------------+
+
+➡️update patient set doctorId = 3 where patientName = 'Raksha';
+Query OK, 1 row affected (0.00 sec)
+
+select * from patient;
++-----------+-------------+----------+
+| patientId | patientName | doctorId |
++-----------+-------------+----------+
+|         2 | Raksha      |        3 |
+|         4 | Tanishq     |        2 |
++-----------+-------------+----------+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

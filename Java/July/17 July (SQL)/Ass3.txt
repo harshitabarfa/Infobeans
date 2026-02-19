@@ -1,0 +1,24 @@
+➡️create table GymMembers (memberId int primary key, memberName varchar(50) not null, membershipType varchar(15) default 'Basic' check (membershipType in ('Basic', 'Premium', 'VIP')), monthlyFee decimal(6,2) check (monthlyFee >= 500));
+Query OK, 0 rows affected (0.03 sec)
+
+➡️insert into GymMembers values (501, 'John', 'Premium', 1200);
+Query OK, 1 row affected (0.01 sec)
+
+insert into GymMembers values (502, 'Emma', 'Gold', 800)
+    -> ;
+ERROR 3819 (HY000): Check constraint 'gymmembers_chk_1' is violated.
+
+insert into GymMembers values (503, 'Daniel', DEFAULT, 700);
+Query OK, 1 row affected (0.01 sec)
+
+insert into GymMembers values (504, 'Sophia', 'VIP', 300);
+ERROR 3819 (HY000): Check constraint 'gymmembers_chk_2' is violated.
+
+➡️select * from GymMembers;
++----------+------------+----------------+------------+
+| memberId | memberName | membershipType | monthlyFee |
++----------+------------+----------------+------------+
+|      501 | John       | Premium        |    1200.00 |
+|      503 | Daniel     | Basic          |     700.00 |
++----------+------------+----------------+------------+
+2 rows in set (0.00 sec)

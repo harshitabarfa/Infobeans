@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function countPairs(arr, n, k) {
+            var map = {};
+            var count = 0;
+
+            for (var i = 0; i < n; i++) {
+                var diff = k - arr[i];
+
+                if (map[diff]) count += map[diff];
+
+                if (map[arr[i]]) map[arr[i]]++;
+                else map[arr[i]] = 1;
+            }
+
+            return count;
+        }
+
+        var arr = [1, 5, 7, 1];
+        var k = 6;
+
+        var result = countPairs(arr, arr.length, k);
+        document.writeln(result);
+    </script>
+</body>
+
+</html>

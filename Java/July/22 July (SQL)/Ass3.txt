@@ -1,0 +1,75 @@
+➡️select * from employe;
++----+----------+------------+-----------+---------+------------+
+| id | name     | department | job_role  | salary  | hire_date  |
++----+----------+------------+-----------+---------+------------+
+|  1 | Harshita | HR         | Manager   | 6000.00 | 2022-01-15 |
+|  2 | Mayuri   | HR         | Recruiter | 4000.00 | 2023-03-20 |
+|  3 | Vanshika | IT         | Developer | 5000.00 | 2022-07-25 |
+|  4 | Raksha   | IT         | Developer | 5500.00 | 2021-12-05 |
+|  5 | Shraddha | IT         | Tester    | 4500.00 | 2023-06-10 |
+|  6 | Tanishq  | IT         | Tester    | 4800.00 | 2023-09-12 |
+|  7 | Yogita   | Finance    | Analyst   | 5200.00 | 2021-11-18 |
+|  8 | Naman    | Finance    | Analyst   | 5300.00 | 2022-04-30 |
+|  9 | Jayu     | Finance    | Manager   | 7000.00 | 2023-08-14 |
+| 10 | Jiyu     | HR         | Recruiter | 4200.00 | 2022-10-05 |
++----+----------+------------+-----------+---------+------------+
+
+➡️select department, count(*) from employe group by department having count(*) > 2;
++------------+----------+
+| department | count(*) |
++------------+----------+
+| HR         |        3 |
+| IT         |        4 |
+| Finance    |        3 |
++------------+----------+
+
+➡️select department, sum(salary) as total_salary from employe group by department order by total_salary desc;
++------------+--------------+
+| department | total_salary |
++------------+--------------+
+| IT         |     19800.00 |
+| Finance    |     17500.00 |
+| HR         |     14200.00 |
++------------+--------------+
+
+➡️select job_role, sum(salary) as total_salary from employe group by job_role having total_salary > 10000 order by total_salary desc;
++-----------+--------------+
+| job_role  | total_salary |
++-----------+--------------+
+| Manager   |     13000.00 |
+| Developer |     10500.00 |
+| Analyst   |     10500.00 |
++-----------+--------------+
+
+➡️select job_role, avg(salary) from employe where hire_date > '2022-12-31' group by job_role having avg(salary) > 4500;
++----------+-------------+
+| job_role | avg(salary) |
++----------+-------------+
+| Tester   | 4650.000000 |
+| Manager  | 7000.000000 |
++----------+-------------+
+
+➡️select department, sum(salary) from employe group by department having sum(salary) > 10000 order by department;
++------------+-------------+
+| department | sum(salary) |
++------------+-------------+
+| Finance    |    17500.00 |
+| HR         |    14200.00 |
+| IT         |    19800.00 |
++------------+-------------+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

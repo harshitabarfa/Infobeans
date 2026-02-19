@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var trips = [
+            { destination: "Paris", isBooked: true, isInternational: true },
+            { destination: "Goa", isBooked: false, isInternational: false },
+            { destination: "London", isBooked: true, isInternational: true }
+        ];
+
+        trips.forEach(trip => {
+            var bookingStatus = trip.isBooked ? "booked" : "not booked";
+            var tripType = trip.isInternational ? "international" : "domestic";
+
+            console.log(
+                "Trip to", trip.destination, "is", bookingStatus, "and it's an", tripType, "trip."
+            );
+        });
+
+    </script>
+</body>
+
+</html>

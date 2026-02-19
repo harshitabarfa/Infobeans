@@ -1,0 +1,73 @@
+package com.info.HospitalManagementSystem;
+
+import jakarta.persistence.*;
+import java.util.*;
+
+public class App 
+{
+    public static void main( String[] args )
+    {
+        System.out.println( "Hello World!" );
+        
+        EntityManagerFactory factory = Persistence.createEntityManagerFactory("persistence.xml");
+        EntityManager em = factory.createEntityManager();
+        
+        Scanner sc = new Scanner(System.in);
+        int choice;
+        
+        do {
+        	System.out.println("\n---Hospital Management System---");
+            System.out.println("1. Add Patient");
+            System.out.println("2. View Patient by ID");
+            System.out.println("3. Update Patient");
+            System.out.println("4. Delete Patient");
+            System.out.println("0. Exit");
+            
+            System.out.print("\nEnter choice: ");
+            choice = sc.nextInt();
+            
+            switch (choice) {
+            case 1:
+				addPatient(em, sc);
+                break;
+            case 2:
+                viewPatient(em, sc);
+                break;
+            case 3:
+                updatePatient(em, sc);
+                break;
+            case 4:
+                deletePatient(em, sc);
+                break;
+            case 5:
+                System.out.println("Exiting...");
+                return;
+            default:
+                System.out.println("Invalid choice!");
+        }
+        } while(choice != 0);
+        em.close();
+        factory.close();
+        sc.close();
+    }
+
+	private static void addPatient(EntityManager em, Scanner sc) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	private static void viewPatient(EntityManager em, Scanner sc) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	private static void updatePatient(EntityManager em, Scanner sc) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	private static void deletePatient(EntityManager em, Scanner sc) {
+		// TODO Auto-generated method stub
+		
+	}
+}

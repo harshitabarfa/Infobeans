@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function getUnion(a, b) {
+            var i = 0, j = 0;
+            var unionArr = [];
+
+            while (i < a.length && j < b.length) {
+                if (a[i] < b[j]) {
+                    if (unionArr.indexOf(a[i]) === -1) unionArr.push(a[i]);
+                    i++;
+                } else if (b[j] < a[i]) {
+                    if (unionArr.indexOf(b[j]) === -1) unionArr.push(b[j]);
+                    j++;
+                } else {
+                    if (unionArr.indexOf(a[i]) === -1) unionArr.push(a[i]);
+                    i++;
+                    j++;
+                }
+            }
+
+            while (i < a.length) {
+                if (unionArr.indexOf(a[i]) === -1) unionArr.push(a[i]);
+                i++;
+            }
+
+            while (j < b.length) {
+                if (unionArr.indexOf(b[j]) === -1) unionArr.push(b[j]);
+                j++;
+            }
+
+            return unionArr;
+        }
+
+        function getIntersection(a, b) {
+            var i = 0, j = 0;
+            var interArr = [];
+
+            while (i < a.length && j < b.length) {
+                if (a[i] < b[j]) i++;
+                else if (b[j] < a[i]) j++;
+                else {
+                    interArr.push(a[i]);
+                    i++;
+                    j++;
+                }
+            }
+
+            return interArr;
+        }
+
+        var a = [1, 2, 3, 4, 5];
+        var b = [1, 2, 3];
+
+        var unionResult = getUnion(a, b);
+        var intersectionResult = getIntersection(a, b);
+
+        document.writeln("Union: ");
+        for (var i = 0; i < unionResult.length; i++) {
+            document.writeln(unionResult[i] + " ");
+        }
+
+        document.writeln("<br>Intersection: ");
+        for (var i = 0; i < intersectionResult.length; i++) {
+            document.writeln(intersectionResult[i] + " ");
+        }
+    </script>
+</body>
+
+</html>

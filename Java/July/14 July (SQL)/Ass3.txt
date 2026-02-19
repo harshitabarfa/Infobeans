@@ -1,0 +1,19 @@
+➡️alter table Students add(dob date);
+
+➡️alter table Students rename column phone to mobile_number;
+
+➡️alter table Students modify age smallint;
+
+➡️alter table Students drop column email;
+
+➡️select * from Students;
++------+----------+------+--------+---------+---------------+------+
+| id   | name     | age  | gender | address | mobile_number | dob  |
++------+----------+------+--------+---------+---------------+------+
+|  101 | Harshita |   20 | Female | Indore  | 9752632166    | NULL |
+|  102 | Mayuri   |   17 | Female | Manawar | 1234567890    | NULL |
+|  103 | Vanshika |   13 | Female | Manawar | 0987654321    | NULL |
+|  104 | Raksha   |   10 | Female | Dhar    | 1234098765    | NULL |
+|  105 | Shraddha |   23 | Female | Dhar    | 1092837465    | NULL |
++------+----------+------+--------+---------+---------------+------+
+5 rows in set (0.00 sec)

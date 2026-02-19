@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var arr = [4.5, 3.8, 5.0, 4.2, 3.0, 4.9]
+
+        var sum = 0;
+        for (var i = 0; i < arr.length; i++) {
+            sum += arr[i];
+        }
+        var average = (sum / arr.length).toFixed(2)
+        document.writeln("Average: ", average, "<br>")
+
+        var count = arr.filter(arr => arr > 4).length;
+        document.writeln("Number of rating above 4: " + count, "<br>");
+
+        var s = arr.sort((a, b) => b - a)
+        document.writeln("Descending: ", s.join(", "))
+    </script>
+</body>
+
+</html>

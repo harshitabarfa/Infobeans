@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Harshi’s Closet | Fashion & Lifestyle Blog</title>
+  <meta name="description"
+    content="Harshi’s Closet — a modern fashion & lifestyle blog with trends, looks, and stories.">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+  <style>
+    .hero {
+      position: relative;
+      height: 100vh;
+      overflow: hidden;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      text-align: center
+    }
+
+    .hero video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.35)
+    }
+
+    .hero .content {
+      position: relative;
+      z-index: 2;
+      animation: fadeUp 1.5s ease-out
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(40px)
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0)
+      }
+    }
+
+    .card-fn img {
+      transition: transform 0.5s ease
+    }
+
+    .card-fn:hover img {
+      transform: scale(1.05)
+    }
+
+    .gallery {
+      column-count: 3;
+      column-gap: 15px
+    }
+
+    .gitem {
+      position: relative;
+      margin-bottom: 15px;
+      overflow: hidden;
+      border-radius: 12px
+    }
+
+    .gitem img {
+      width: 100%;
+      transition: transform 0.4s ease
+    }
+
+    .gitem:hover img {
+      transform: scale(1.1)
+    }
+
+    .gitem .overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.45);
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.4s ease
+    }
+
+    .gitem:hover .overlay {
+      opacity: 1
+    }
+
+    .card-fn {
+      background: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(0, 0, 0, 0.05)
+    }
+
+    .newsletter {
+      position: relative;
+      padding: 100px 20px;
+      color: #fff;
+      text-align: center;
+      background: url('https://images.pexels.com/photos/8453669/pexels-photo-8453669.jpeg') no-repeat center/cover
+    }
+
+    .newsletter::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.55)
+    }
+
+    .newsletter .card-fn {
+      position: relative;
+      z-index: 2;
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      color: #fff
+    }
+
+    .parallax-video {
+      position: relative;
+      height: 70vh;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      text-align: center
+    }
+
+    .parallax-video video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 0
+    }
+
+    .parallax-video .overlay {
+      position: relative;
+      z-index: 2;
+      background: rgba(0, 0, 0, 0.4);
+      padding: 60px;
+      border-radius: 12px
+    }
+
+    footer a {
+      color: #000;
+      font-size: 1.3rem;
+      transition: color 0.3s
+    }
+
+    footer a:hover {
+      color: #e91e63
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg fixed-top bg-white bg-opacity-75 backdrop-blur">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="index.html">Harshi’s Closet</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="nav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="trends.html">Trends</a></li>
+          <li class="nav-item"><a class="nav-link" href="looks.html">Looks</a></li>
+          <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <header class="hero">
+    <video autoplay muted loop playsinline>
+      <source src="https://videos.pexels.com/video-files/6778857/6778857-uhd_2732_1440_24fps.mp4" type="video/mp4">
+    </video>
+    <div class="container content">
+      <span class="badge rounded-pill px-3 py-2 bg-light text-dark">Fashion • Beauty • Lifestyle</span>
+      <h1 class="display-4 fw-bold mt-3">Wear Your Story</h1>
+      <p class="lead">Trends decoded. Looks curated. Real-life style—served fresh.</p>
+      <a href="blog.html" class="btn btn-dark btn-lg mt-2">Read the Blog</a>
+    </div>
+  </header>
+  <section>
+    <div class="container container-narrow py-5">
+      <div class="d-flex justify-content-between align-items-center mb-3">
+        <h2 class="section-title m-0">Featured</h2>
+        <a href="blog.html" class="link-dark">View all →</a>
+      </div>
+      <div class="row g-4">
+        <div class="col-md-6">
+          <a href="post.html" class="text-reset">
+            <div class="card-fn hover overflow-hidden rounded shadow-sm">
+              <img src="https://images.pexels.com/photos/33572376/pexels-photo-33572376.jpeg"
+                alt="Streetwear Essentials">
+              <div class="p-4">
+                <h4>5 Streetwear Staples for 2025</h4>
+                <p class="meta mb-0">By Harshi • 8 min read</p>
+              </div>
+            </div>
+          </a>
+        </div>
+        <div class="col-md-6">
+          <a href="post.html" class="text-reset">
+            <div class="card-fn hover overflow-hidden rounded shadow-sm">
+              <img src="https://images.pexels.com/photos/1007018/pexels-photo-1007018.jpeg" alt="Runway Look">
+              <div class="p-4">
+                <h4>Runway to Realway: Spring Palette</h4>
+                <p class="meta mb-0">By Harshi • 6 min read</p>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="parallax-video">
+    <video autoplay muted loop playsinline>
+      <source src="https://www.pexels.com/download/video/5743177/" type="video/mp4">
+    </video>
+    <div class="overlay">
+      <h2>“Fashion is the armor to survive everyday life.”</h2>
+      <p>— Bill Cunningham</p>
+    </div>
+  </section>
+  <section class="bg-light py-5">
+    <div class="container container-narrow text-center">
+      <h2 class="section-title">Daily Looks</h2>
+      <p class="section-sub">Save-worthy outfits & ideas</p>
+      <div class="gallery mt-4">
+        <div class="gitem">
+          <img src="https://images.pexels.com/photos/8453043/pexels-photo-8453043.jpeg" alt="Street Style">
+          <div class="overlay">
+            <h5>Street Style</h5><i class="bi bi-heart-fill"></i>
+          </div>
+        </div>
+        <div class="gitem">
+          <img src="https://images.pexels.com/photos/671803/pexels-photo-671803.jpeg" alt="Minimal Look">
+          <div class="overlay">
+            <h5>Minimal Look</h5><i class="bi bi-heart-fill"></i>
+          </div>
+        </div>
+        <div class="gitem">
+          <img src="https://images.pexels.com/photos/29793513/pexels-photo-29793513.jpeg" alt="Runway Outfit">
+          <div class="overlay">
+            <h5>Runway Outfit</h5><i class="bi bi-heart-fill"></i>
+          </div>
+        </div>
+        <div class="gitem">
+          <img src="https://images.pexels.com/photos/20594799/pexels-photo-20594799.jpeg" alt="Modern Chic">
+          <div class="overlay">
+            <h5>Modern Chic</h5><i class="bi bi-heart-fill"></i>
+          </div>
+        </div>
+        <div class="gitem">
+          <img src="https://images.pexels.com/photos/8165202/pexels-photo-8165202.jpeg" alt="Denim Vibes">
+          <div class="overlay">
+            <h5>Denim Vibes</h5><i class="bi bi-heart-fill"></i>
+          </div>
+        </div>
+        <div class="gitem">
+          <img src="https://images.pexels.com/photos/8147479/pexels-photo-8147479.jpeg" alt="Luxury Aesthetic">
+          <div class="overlay">
+            <h5>Luxury Aesthetic</h5><i class="bi bi-heart-fill"></i>
+          </div>
+        </div>
+      </div>
+      <a href="looks.html" class="btn btn-dark mt-4">Browse Looks</a>
+    </div>
+  </section>
+  <section class="newsletter">
+    <div class="container container-narrow">
+      <div class="card-fn p-5 rounded-3 shadow text-center">
+        <h3 class="mb-2">Join the Inner Circle</h3>
+        <p class="section-sub" style="color: black;">Exclusive fashion tips & trends directly to your inbox.</p>
+        <form class="row g-2 justify-content-center">
+          <div class="col-md-5"><input class="form-control" type="email" placeholder="Enter your email"></div>
+          <div class="col-md-auto"><button class="btn btn-light px-4" type="submit">Subscribe</button></div>
+        </form>
+      </div>
+    </div>
+  </section>
+  <footer class="py-4 text-center">
+    <div class="container">
+      <p class="mb-0">© 2025 Harshi’s Closet. All rights reserved.</p>
+    </div>
+  </footer>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,83 @@
+➡️create table author (authorId int primary key auto_increment, authorName varchar(50) unique not null);
+
+➡️desc author;
++------------+-------------+------+-----+---------+----------------+
+| Field      | Type        | Null | Key | Default | Extra          |
++------------+-------------+------+-----+---------+----------------+
+| authorId   | int         | NO   | PRI | NULL    | auto_increment |
+| authorName | varchar(50) | NO   | UNI | NULL    |                |
++------------+-------------+------+-----+---------+----------------+
+
+➡️create table book (bookId int primary key auto_increment, bookTitle varchar(50) unique not null, authorId int, foreign key(authorId) references author(authorId) on delete set null);
+
+➡️desc book;
++-----------+-------------+------+-----+---------+----------------+
+| Field     | Type        | Null | Key | Default | Extra          |
++-----------+-------------+------+-----+---------+----------------+
+| bookId    | int         | NO   | PRI | NULL    | auto_increment |
+| bookTitle | varchar(50) | NO   | UNI | NULL    |                |
+| authorId  | int         | YES  | MUL | NULL    |                |
++-----------+-------------+------+-----+---------+----------------+
+
+➡️insert into author (authorName) values ('Harshita'), ('Mayuri'), ('Vanshika');
+
+select * from author;
++----------+------------+
+| authorId | authorName |
++----------+------------+
+|        1 | Harshita   |
+|        2 | Mayuri     |
+|        3 | Vanshika   |
++----------+------------+
+
+➡️insert into book (bookTitle, authorId) values ('Sapiens', 1), ('Emma', 2), ('Dracula', 3), ('It', 1), ('Dune', 2);
+
+select * from book;
++--------+-----------+----------+
+| bookId | bookTitle | authorId |
++--------+-----------+----------+
+|      1 | Sapiens   |        1 |
+|      2 | Emma      |        2 |
+|      3 | Dracula   |        3 |
+|      4 | It        |        1 |
+|      5 | Dune      |        2 |
++--------+-----------+----------+
+
+➡️delete from author where authorId = 1;
+
+select * from book;
++--------+-----------+----------+
+| bookId | bookTitle | authorId |
++--------+-----------+----------+
+|      1 | Sapiens   |     NULL |
+|      2 | Emma      |        2 |
+|      3 | Dracula   |        3 |
+|      4 | It        |     NULL |
+|      5 | Dune      |        2 |
++--------+-----------+----------+
+
+➡️update book set authorId = 3 where bookId = 1;
+
+select * from book;
++--------+-----------+----------+
+| bookId | bookTitle | authorId |
++--------+-----------+----------+
+|      1 | Sapiens   |        3 |
+|      2 | Emma      |        2 |
+|      3 | Dracula   |        3 |
+|      4 | It        |     NULL |
+|      5 | Dune      |        2 |
++--------+-----------+----------+
+
+
+
+
+
+
+
+
+
+
+
+
+

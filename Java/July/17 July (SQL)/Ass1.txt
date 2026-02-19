@@ -1,0 +1,34 @@
+➡️create table Student1 (student_id int primary key, name varchar(50) not null, age int check (age between 18 and 25), marks decimal(5,2) check (marks between 0 and 100));
+Query OK, 0 rows affected (0.09 sec)
+
+➡️desc Student1;
++------------+--------------+------+-----+---------+-------+
+| Field      | Type         | Null | Key | Default | Extra |
++------------+--------------+------+-----+---------+-------+
+| student_id | int          | NO   | PRI | NULL    |       |
+| name       | varchar(50)  | NO   |     | NULL    |       |
+| age        | int          | YES  |     | NULL    |       |
+| marks      | decimal(5,2) | YES  |     | NULL    |       |
++------------+--------------+------+-----+---------+-------+
+4 rows in set (0.02 sec)
+
+➡️insert into Student1 values (101, 'Alice', 20, 85.5);
+Query OK, 1 row affected (0.01 sec)
+
+➡️insert into Student1 values (102, 'Bob', 17, 90.0);
+ERROR 3819 (HY000): Check constraint 'student1_chk_1' is violated.
+
+➡️insert into Student1 values (103, 'Charlie', 22, 105.0);
+ERROR 3819 (HY000): Check constraint 'student1_chk_2' is violated.
+
+➡️insert into Student1 values (104, 'David', 24, 75.0);
+Query OK, 1 row affected (0.01 sec)
+
+➡️select * from Student1;
++------------+-------+------+-------+
+| student_id | name  | age  | marks |
++------------+-------+------+-------+
+|        101 | Alice |   20 | 85.50 |
+|        104 | David |   24 | 75.00 |
++------------+-------+------+-------+
+2 rows in set (0.00 sec)

@@ -1,0 +1,91 @@
+➡️create table dept (DepartmentId int primary key, DepartmentName varchar(50) unique not null);
+
+➡️desc dept;
++----------------+-------------+------+-----+---------+-------+
+| Field          | Type        | Null | Key | Default | Extra |
++----------------+-------------+------+-----+---------+-------+
+| DepartmentId   | int         | NO   | PRI | NULL    |       |
+| DepartmentName | varchar(50) | NO   | UNI | NULL    |       |
++----------------+-------------+------+-----+---------+-------+
+
+➡️create table employe (EmployeeId int primary key, EmployeeName varchar(50) not null, salary decimal(10,2) not null, DepartmentId int not null, foreign key(DepartmentId) references dept(DepartmentId) on delete cascade);
+
+➡️desc employe;
++--------------+---------------+------+-----+---------+-------+
+| Field        | Type          | Null | Key | Default | Extra |
++--------------+---------------+------+-----+---------+-------+
+| EmployeeId   | int           | NO   | PRI | NULL    |       |
+| EmployeeName | varchar(50)   | NO   |     | NULL    |       |
+| salary       | decimal(10,2) | NO   |     | NULL    |       |
+| DepartmentId | int           | NO   | MUL | NULL    |       |
++--------------+---------------+------+-----+---------+-------+
+
+➡️insert into dept values (1, 'IT');
+insert into dept values (2, 'CS');
+insert into dept values (3, 'HR');
+
+➡️select * from dept order by DepartmentId;
++--------------+----------------+
+| DepartmentId | DepartmentName |
++--------------+----------------+
+|            1 | IT             |
+|            2 | CS             |
+|            3 | HR             |
++--------------+----------------+
+
+➡️insert into employe values (101, 'Harshita', 70000, 1);
+insert into employe values (102, 'Mayuri', 80000, 2);
+insert into employe values (103, 'Vanshika', 67000, 2);
+insert into employe values (104, 'Raksha', 78000, 3);
+insert into employe values (105, 'Shraddha', 89000, 1);
+
+➡️select * from employe;
++------------+--------------+----------+--------------+
+| EmployeeId | EmployeeName | salary   | DepartmentId |
++------------+--------------+----------+--------------+
+|        101 | Harshita     | 70000.00 |            1 |
+|        102 | Mayuri       | 80000.00 |            2 |
+|        103 | Vanshika     | 67000.00 |            2 |
+|        104 | Raksha       | 78000.00 |            3 |
+|        105 | Shraddha     | 89000.00 |            1 |
++------------+--------------+----------+--------------+
+
+➡️select e.EmployeeName, d.DepartmentName from employe e, dept d where e.DepartmentId = d.DepartmentId;
++--------------+----------------+
+| EmployeeName | DepartmentName |
++--------------+----------------+
+| Mayuri       | CS             |
+| Vanshika     | CS             |
+| Raksha       | HR             |
+| Harshita     | IT             |
+| Shraddha     | IT             |
++--------------+----------------+
+
+➡️update employe set DepartmentId = 3 where DepartmentId = 1;
+
+select * from employe;
++------------+--------------+----------+--------------+
+| EmployeeId | EmployeeName | salary   | DepartmentId |
++------------+--------------+----------+--------------+
+|        101 | Harshita     | 70000.00 |            3 |
+|        102 | Mayuri       | 80000.00 |            2 |
+|        103 | Vanshika     | 67000.00 |            2 |
+|        104 | Raksha       | 78000.00 |            3 |
+|        105 | Shraddha     | 89000.00 |            3 |
++------------+--------------+----------+--------------+
+
+➡️delete from dept where DepartmentId = 3;
+
+select * from employe;
++------------+--------------+----------+--------------+
+| EmployeeId | EmployeeName | salary   | DepartmentId |
++------------+--------------+----------+--------------+
+|        102 | Mayuri       | 80000.00 |            2 |
+|        103 | Vanshika     | 67000.00 |            2 |
++------------+--------------+----------+--------------+
+
+
+
+
+
+

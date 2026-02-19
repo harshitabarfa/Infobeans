@@ -1,0 +1,99 @@
+➡️create table Employee1(emp_id INT,
+emp_name VARCHAR(50),
+department VARCHAR(30),
+salary INT,
+join_date DATE
+);
+Query OK, 0 rows affected (0.04 sec)
+
+
+➡️desc Employee1;
++------------+-------------+------+-----+---------+-------+
+| Field      | Type        | Null | Key | Default | Extra |
++------------+-------------+------+-----+---------+-------+
+| emp_id     | int         | YES  |     | NULL    |       |
+| emp_name   | varchar(50) | YES  |     | NULL    |       |
+| department | varchar(30) | YES  |     | NULL    |       |
+| salary     | int         | YES  |     | NULL    |       |
+| join_date  | date        | YES  |     | NULL    |       |
++------------+-------------+------+-----+---------+-------+
+5 rows in set (0.01 sec)
+
+
+➡️insert into Employee1(emp_id, emp_name, department, salary, join_date) VALUES
+(1, 'Amit', 'HR', 28000, '2020-05-10'),
+(2, 'Neha', 'IT', 25000, '2021-03-15'),
+(3, 'Ravi', 'Sales', 32000, '2019-11-20'),
+(4, 'Priya', 'Finance', 40000, '2022-01-10'),
+(5, 'Karan', 'IT', 29000, '2020-08-05'),
+(6, 'Anita', 'HR', 35000, '2023-06-01'),
+(7, 'Vikram', 'Sales', 27000, '2021-12-30'),
+(8, 'Simran', 'Marketing', 45000, '2022-09-18'),
+(9, 'Suresh', 'IT', 22000, '2018-07-12'),
+(10, 'Meena', 'Operations', 30000, '2021-05-25');
+Query OK, 10 rows affected (0.01 sec)
+Records: 10  Duplicates: 0  Warnings: 0
+
+
+➡️select * from Employee1;
++--------+----------+------------+--------+------------+
+| emp_id | emp_name | department | salary | join_date  |
++--------+----------+------------+--------+------------+
+|      1 | Amit     | HR         |  28000 | 2020-05-10 |
+|      2 | Neha     | IT         |  25000 | 2021-03-15 |
+|      3 | Ravi     | Sales      |  32000 | 2019-11-20 |
+|      4 | Priya    | Finance    |  40000 | 2022-01-10 |
+|      5 | Karan    | IT         |  29000 | 2020-08-05 |
+|      6 | Anita    | HR         |  35000 | 2023-06-01 |
+|      7 | Vikram   | Sales      |  27000 | 2021-12-30 |
+|      8 | Simran   | Marketing  |  45000 | 2022-09-18 |
+|      9 | Suresh   | IT         |  22000 | 2018-07-12 |
+|     10 | Meena    | Operations |  30000 | 2021-05-25 |
++--------+----------+------------+--------+------------+
+10 rows in set (0.00 sec)
+
+
+➡️update Employee1 set salary = 60000 where department = 'HR' or department = 'sales';
+Query OK, 4 rows affected (0.01 sec)
+Rows matched: 4  Changed: 4  Warnings: 0
+
+
+➡️UPDATE Employee1 SET salary = salary + 5000
+WHERE salary < 30000 AND department = 'IT';
+Query OK, 3 rows affected (0.01 sec)
+Rows matched: 3  Changed: 3  Warnings: 0
+
+➡️delete from Employee1 where join_date < '2021-01-01';
+Query OK, 4 rows affected (0.01 sec)
+
+
+➡️rename table Employee1 to staff_records;
+Query OK, 0 rows affected (0.02 sec)
+
+
+➡️alter table staff_records add(experience_years int);
+Query OK, 0 rows affected (0.03 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+
+➡️alter table staff_records drop column join_date;
+Query OK, 0 rows affected (0.03 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+
+➡️select * from staff_records;
++--------+----------+------------+--------+------------------+
+| emp_id | emp_name | department | salary | experience_years |
++--------+----------+------------+--------+------------------+
+|      2 | Neha     | IT         |  30000 |             NULL |
+|      4 | Priya    | Finance    |  40000 |             NULL |
+|      6 | Anita    | HR         |  60000 |             NULL |
+|      7 | Vikram   | Sales      |  60000 |             NULL |
+|      8 | Simran   | Marketing  |  45000 |             NULL |
+|     10 | Meena    | Operations |  30000 |             NULL |
++--------+----------+------------+--------+------------------+
+6 rows in set (0.00 sec)
+
+
+
+

@@ -1,0 +1,13 @@
+select e.EmployeeId, e.EmployeeName, d.DepartmentId, d.DepartmentName from employee e left join department d on e.DepartmentId = d.DepartmentId
+union
+select e.EmployeeId, e.EmployeeName, d.DepartmentId, d.DepartmentName from employee e right join  department d on e.DepartmentId = d.DepartmentId;
+
++------------+--------------+--------------+----------------+
+| EmployeeId | EmployeeName | DepartmentId | DepartmentName |
++------------+--------------+--------------+----------------+
+|        101 | Harshita     |            1 | IT             |
+|        102 | Mayuri       |            2 | CS             |
+|        103 | Vanshika     |            2 | CS             |
+|        104 | Raksha       |            3 | HR             |
+|        105 | Shraddha     |            1 | IT             |
++------------+--------------+--------------+----------------+

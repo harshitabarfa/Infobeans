@@ -1,0 +1,130 @@
+➡️create table student(student_id int primary key auto_increment, name varchar(50), class int, subject varchar(50), marks int, exam_date date);
+
+➡️insert into student(name, class, subject, marks, exam_date) values ('Harshita', 10, 'Math', 85, '2023-02-10');
+
+insert into student(name, class, subject, marks, exam_date) values ('Mayuri', 10, 'Science', 78, '2023-03-15');
+
+insert into student(name, class, subject, marks, exam_date) values ('Vanshika', 9, 'Math', 92, '2023-04-20');
+
+insert into student(name, class, subject, marks, exam_date) values ('Raksha', 9, 'Science', 80, '2023-05-25');
+
+insert into student(name, class, subject, marks, exam_date) values ('Shraddha', 10, 'Math', 88, '2023-06-30');
+
+insert into student(name, class, subject, marks, exam_date) values ('Tanishq', 9, 'Science', 75, '2023-07-10');
+
+insert into student(name, class, subject, marks, exam_date) values ('Yogita', 10, 'Math', 90, '2023-08-20');
+
+insert into student(name, class, subject, marks, exam_date) values ('Naman', 9, 'Math', 85, '2023-09-15');
+
+insert into student(name, class, subject, marks, exam_date) values ('Jayu', 10, 'Scienec', 82, '2023-10-10');
+
+insert into student(name, class, subject, marks, exam_date) values ('Jiyu', 9, 'Science', 79, '2023-11-05');
+
+➡️select * from student;
++------------+----------+-------+---------+-------+------------+
+| student_id | name     | class | subject | marks | exam_date  |
++------------+----------+-------+---------+-------+------------+
+|          1 | Harshita |    10 | Math    |    85 | 2023-02-10 |
+|          2 | Mayuri   |    10 | Science |    78 | 2023-03-15 |
+|          3 | Vanshika |     9 | Math    |    92 | 2023-04-20 |
+|          4 | Raksha   |     9 | Science |    80 | 2023-05-25 |
+|          5 | Shraddha |    10 | Math    |    88 | 2023-06-30 |
+|          6 | Tanishq  |     9 | Science |    75 | 2023-07-10 |
+|          7 | Yogita   |    10 | Math    |    90 | 2023-08-20 |
+|          8 | Naman    |     9 | Math    |    85 | 2023-09-15 |
+|          9 | Jayu     |    10 | Science |    82 | 2023-10-10 |
+|         10 | Jiyu     |     9 | Science |    79 | 2023-11-05 |
++------------+----------+-------+---------+-------+------------+
+
+➡️select class, count(*) from student group by class;
++-------+----------+
+| class | count(*) |
++-------+----------+
+|    10 |        5 |
+|     9 |        5 |
++-------+----------+
+
+➡️select max(marks) from student where subject = 'math';
++------------+
+| max(marks) |
++------------+
+|         92 |
++------------+
+
+➡️select subject, avg(marks) from student group by subject;
++---------+------------+
+| subject | avg(marks) |
++---------+------------+
+| Math    |    88.0000 |
+| Science |    78.8000 |
++---------+------------+
+
+➡️select count(*) from student where marks > 80;
++----------+
+| count(*) |
++----------+
+|        6 |
++----------+
+
+➡️select month(exam_date), count(*) from student group by month(exam_date) order by month(exam_date);
++------------------+----------+
+| month(exam_date) | count(*) |
++------------------+----------+
+|                2 |        1 |
+|                3 |        1 |
+|                4 |        1 |
+|                5 |        1 |
+|                6 |        1 |
+|                7 |        1 |
+|                8 |        1 |
+|                9 |        1 |
+|               10 |        1 |
+|               11 |        1 |
++------------------+----------+
+
+➡️select subject, avg(marks) from student group by subject limit 1;
++---------+------------+
+| subject | avg(marks) |
++---------+------------+
+| Math    |    88.0000 |
++---------+------------+
+
+➡️select name, marks from student where subject = 'science' order by marks asc limit 1;
++---------+-------+
+| name    | marks |
++---------+-------+
+| Tanishq |    75 |
++---------+-------+
+
+➡️select class, count(*) from student where marks > 85 group by class;
++-------+----------+
+| class | count(*) |
++-------+----------+
+|     9 |        1 |
+|    10 |        2 |
++-------+----------+
+
+➡️select subject, avg(marks) from student group by subject having avg(marks) > 80;
++---------+------------+
+| subject | avg(marks) |
++---------+------------+
+| Math    |    88.0000 |
++---------+------------+
+
+➡️select name, marks from student order by marks desc limit 1;
++----------+-------+
+| name     | marks |
++----------+-------+
+| Vanshika |    92 |
++----------+-------+
+
+
+
+
+
+
+
+
+
+
+

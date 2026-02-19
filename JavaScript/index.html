@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Welcome To The JavaScript Journey!</h1>
+
+    <!DOCTYPE html>
+    <html>
+
+    <head>
+        <title>Login Form</title>
+    </head>
+
+    <body>
+        <!-- <h2>Login Form</h2>
+
+        <form name="myForm" action="msg.html" onsubmit="return validateForm()">
+
+            Name: <br>
+            <input type="text" name="username"><br><br>
+
+            Password: <br>
+            <input type="password" name="password"><br><br>
+
+            <input type="submit" value="Login">
+        </form>
+
+        <p id="error" style="color:red;"></p>
+        </form> -->
+
+        <!DOCTYPE html>
+        <html>
+
+        <head>
+            <title>MCQ Quiz in Form</title>
+        </head>
+
+        <body>
+
+            <h2>JavaScript MCQ Quiz</h2>
+
+            <form>
+                <p>1. JavaScript kis type ki language hai?</p>
+                <input type="radio" id="q1a" name="q1" value="a">
+                <label for="q1a">Markup</label><br>
+
+                <input type="radio" id="q1b" name="q1" value="b">
+                <label for="q1b">Programming</label><br>
+
+                <input type="radio" id="q1c" name="q1" value="c">
+                <label for="q1c">Styling</label><br><br>
+
+                <p>2. JavaScript ko browser me kaun run karta hai?</p>
+                <input type="radio" id="q2a" name="q2" value="a">
+                <label for="q2a">Compiler</label><br>
+
+                <input type="radio" id="q2b" name="q2" value="b">
+                <label for="q2b">Interpreter</label><br>
+
+                <input type="radio" id="q2c" name="q2" value="c">
+                <label for="q2c">JavaScript Engine</label><br>
+
+                <p>3. JS me function ka keyword kya hota hai?</p>
+                <input type="radio" id="q3a" name="q3" value="a">
+                <label for="q3a">method</label><br>
+
+                <input type="radio" id="q3b" name="q3" value="b">
+                <label for="q3b">func</label><br>
+
+                <input type="radio" id="q3c" name="q3" value="c">
+                <label for="q3c">function</label><br><br>
+
+                <input type="button" value="Submit Quiz" onclick="submitQuiz()">
+
+            </form>
+
+            <h3 id="result"></h3>
+
+            <script>
+                function submitQuiz() {
+                    let score = 0;
+
+                    let correctAns = {
+                        q1: "b",
+                        q2: "c",
+                        q3: "c"
+                    };
+
+                    let q1 = document.getElementsByName("q1");
+                    for (let i = 0; i < q1.length; i++) {
+                        if (q1[i].checked && q1[i].value === correctAns.q1) {
+                            score++;
+                        }
+                    }
+
+                    let q2 = document.getElementsByName("q2");
+                    for (let i = 0; i < q2.length; i++) {
+                        if (q2[i].checked && q2[i].value === correctAns.q2) {
+                            score++;
+                        }
+                    }
+
+                    let q3 = document.getElementsByName("q3");
+                    for (let i = 0; i < q3.length; i++) {
+                        if (q3[i].checked && q3[i].value === correctAns.q3) {
+                            score++;
+                        }
+                    }
+
+                    document.getElementById("result").innerText =
+                        "Your Total Score: " + score + " / 3";
+                }
+            </script>
+
+        </body>
+
+        </html>
+
+        <!-- <Script type="text/javascript" src="script.js"></Script> -->
+        <!-- <Script type="text/javascript" src="script1.js"></Script> -->
+        <!-- <Script type="text/javascript" src="script2.js"></Script> -->
+        <!-- <Script type="text/javascript" src="script3.js"></Script> -->
+        <!-- <Script type="text/javascript" src="script4.js"></Script> -->
+        <!-- <Script type="text/javascript" src="script5.js"></Script> -->
+        <!-- <Script type="text/javascript" src="script6.js"></Script> -->
+        <!-- <Script type="text/javascript" src="script7.js"></Script> -->
+        <!-- <script type="text/javascript" src="script8.js"></script> -->
+        <!-- <script type="text/javascript" src="callback.js"></script> -->
+        <!-- <script type="text/javascript" src="Nested.js"></script> -->
+        <!-- <script type="text/javascript" src="Object.js"></script> -->
+        <script type="text/javascript" src="26.js"></script>
+    </body>
+
+    </html>

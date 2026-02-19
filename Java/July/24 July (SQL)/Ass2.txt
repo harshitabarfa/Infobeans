@@ -1,0 +1,17 @@
+select e.EmployeeId, e.EmployeeName, d.DepartmentName from employee e inner join department d on e.DepartmentId = d.DepartmentId order by EmployeeId;
++------------+--------------+----------------+
+| EmployeeId | EmployeeName | DepartmentName |
++------------+--------------+----------------+
+|        101 | Harshita     | IT             |
+|        102 | Mayuri       | CS             |
+|        103 | Vanshika     | CS             |
+|        104 | Raksha       | HR             |
+|        105 | Shraddha     | IT             |
++------------+--------------+----------------+
+
+select count(*) from employee e left join department d on e.DepartmentId = d.DepartmentId where e.DepartmentId is null;
++----------+
+| count(*) |
++----------+
+|        0 |
++----------+

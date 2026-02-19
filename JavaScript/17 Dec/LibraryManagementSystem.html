@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var books = [
+            { title: "The Alchemist", author: "Paulo Coelho", isbn: "111", price: 600 },
+            { title: "Atomic Habits", author: "James Clear", isbn: "222", price: 550 },
+            { title: "Clean Code", author: "Robert C. Martin", isbn: "333", price: 800 },
+            { title: "Ikigai", author: "Hector Garcia", isbn: "444", price: 450 },
+            { title: "Deep Work", author: "Cal Newport", isbn: "555", price: 700 }
+        ];
+
+        books.forEach(book => {
+            if (book.price > 500) {
+                book.price = book.price * 0.9;
+            }
+        });
+
+        while (true) {
+            var choice = prompt(
+                `Library Menu: 
+                1. View all books
+                2. Search book by title
+                3. Display most expensive book
+                4. Show books by author
+                5. Count books above a price
+                6. Total inventory value
+                7. Exit
+                Enter your choice:`
+            );
+
+            if (choice === "1") {
+                books.forEach(book => console.log(book));
+            }
+
+            else if (choice === "2") {
+                var title = prompt("Enter book title:");
+                var book = books.find(b => b.title.toLowerCase() === title.toLowerCase());
+                console.log(book ? book : "Book not found");
+            }
+
+            else if (choice === "3") {
+                var expensiveBook = books[0];
+                books.forEach(book => {
+                    if (book.price > expensiveBook.price) {
+                        expensiveBook = book;
+                    }
+                });
+                console.log(expensiveBook);
+            }
+
+            else if (choice === "4") {
+                var author = prompt("Enter author name:");
+                var authorBooks = books.filter(
+                    book => book.author.toLowerCase() === author.toLowerCase()
+                );
+                console.log(authorBooks.length ? authorBooks : "No books found");
+            }
+
+            else if (choice === "5") {
+                var price = Number(prompt("Enter price:"));
+                var count = books.filter(book => book.price > price).length;
+                console.log("Number of books above", price, count);
+            }
+
+            else if (choice === "6") {
+                var totalValue = books.reduce((sum, book) => sum + book.price, 0);
+                console.log("Total inventory value:", totalValue);
+            }
+
+            else if (choice === "7") {
+                console.log("Exiting application...");
+                break;
+            }
+
+            else {
+                console.log("Invalid choice. Try again.");
+            }
+        }
+    </script>
+</body>
+
+</html>

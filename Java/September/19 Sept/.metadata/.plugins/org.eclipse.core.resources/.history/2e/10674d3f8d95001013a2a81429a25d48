@@ -1,0 +1,5 @@
+package com.info.EmployeeManagementSystem;
+
+public class Employee {
+
+}

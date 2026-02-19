@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog — Harshi’s Closet</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .hero {
+      position: relative;
+      height: 55vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: #fff;
+      overflow: hidden;
+    }
+
+    .hero .bg-media img {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      top: 0;
+      left: 0;
+      filter: brightness(0.5);
+    }
+
+    .hero .content {
+      position: relative;
+      z-index: 2;
+      animation: fadeUp 1.3s ease-out;
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .card-fn img {
+      transition: transform 0.4s ease;
+    }
+
+    .card-fn:hover img {
+      transform: scale(1.05);
+    }
+
+    .card-fn .p-4 {
+      background: #fff;
+    }
+
+    .newsletter {
+      position: relative;
+      padding: 100px 20px;
+      color: #fff;
+      text-align: center;
+      background: url('https://images.pexels.com/photos/8453669/pexels-photo-8453669.jpeg') no-repeat center/cover
+    }
+
+    /* .newsletter input {
+      max-width: 350px;
+    } */
+
+    .newsletter::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.55)
+    }
+
+    .newsletter .card-fn {
+      position: relative;
+      z-index: 2;
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      color: #fff
+    }
+
+    .sidebar h5 {
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+
+    .sidebar .popular-post img {
+      width: 70px;
+      height: 70px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+
+    .sidebar .popular-post .text {
+      font-size: 0.9rem;
+    }
+
+    .insta-feed img {
+      width: 100%;
+      aspect-ratio: 1/1;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg fixed-top bg-white shadow-sm">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="index.html">Harshi’s Closet</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="nav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="trends.html">Trends</a></li>
+          <li class="nav-item"><a class="nav-link" href="looks.html">Looks</a></li>
+          <li class="nav-item"><a class="nav-link active" href="blog.html">Blog</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero"s>
+    <div class="bg-media">
+      <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?q=80&w=1920&auto=format&fit=crop"
+        alt="Blog">
+    </div>
+    <div class="container content">
+      <h1 class="display-5 fw-bold">The Journal</h1>
+      <p class="lead">Tips, reviews, routines, and real talk.</p>
+    </div>
+  </header>
+
+  <section class="py-5">
+    <div class="container">
+      <div class="row g-5">
+        <div class="col-lg-8">
+          <div class="row g-4">
+            <div class="col-md-6">
+              <a href="post.html" class="text-reset">
+                <div class="card-fn hover overflow-hidden h-100 rounded shadow-sm">
+                  <img src="https://images.pexels.com/photos/8580765/pexels-photo-8580765.jpeg"
+                    alt="Capsule Wardrobe 101">
+                  <div class="p-4">
+                    <h4 class="mb-1">Capsule Wardrobe 101</h4>
+                    <p class="meta">Build a closet that works every day, not just on Instagram.</p>
+                  </div>
+                </div>
+              </a>
+            </div>
+
+            <div class="col-md-6">
+              <a href="post.html" class="text-reset">
+                <div class="card-fn hover overflow-hidden h-100 rounded shadow-sm">
+                  <img
+                    src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?auto=format&fit=crop&w=800&q=80"
+                    alt="Sneaker Cleaning Routine">
+                  <div class="p-4">
+                    <h4 class="mb-1">Sneaker Cleaning Routine</h4>
+                    <p class="meta">Keep your kicks box-fresh with simple steps.</p>
+                  </div>
+                </div>
+              </a>
+            </div>
+
+            <div class="col-md-6">
+              <a href="post.html" class="text-reset">
+                <div class="card-fn hover overflow-hidden h-100 rounded shadow-sm">
+                  <img src="https://images.pexels.com/photos/27638609/pexels-photo-27638609.jpeg"
+                    alt="Monochrome Dressing">
+                  <div class="p-4">
+                    <h4 class="mb-1">Monochrome Dressing</h4>
+                    <p class="meta">Minimal effort, maximum impact.</p>
+                  </div>
+                </div>
+              </a>
+            </div>
+
+            <div class="col-md-6">
+              <a href="post.html" class="text-reset">
+                <div class="card-fn hover overflow-hidden h-100 rounded shadow-sm">
+                  <img
+                    src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=800&q=80"
+                    alt="Thrifting Guide">
+                  <div class="p-4">
+                    <h4 class="mb-1">Thrifting Guide</h4>
+                    <p class="meta">Score designer looks on a budget.</p>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 sidebar">
+          <div class="mb-5">
+            <h5>Popular Posts</h5>
+            <div class="d-flex mb-3 popular-post pt-4">
+              <img src="https://images.unsplash.com/photo-1551028719-00167b16eac5?auto=format&fit=crop&w=200&q=80"
+                alt="">
+              <div class="ms-3 text">
+                <p class="mb-1 fw-semibold">Summer Layering Tips</p>
+                <small class="text-muted">2k views</small>
+              </div>
+            </div>
+            <div class="d-flex mb-3 popular-post">
+              <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=200&q=80"
+                alt="">
+              <div class="ms-3 text">
+                <p class="mb-1 fw-semibold">Winter Boots Guide</p>
+                <small class="text-muted">1.5k views</small>
+              </div>
+            </div>
+            <div class="d-flex popular-post">
+              <img src="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=200&q=80"
+                alt="">
+              <div class="ms-3 text">
+                <p class="mb-1 fw-semibold">Accessorizing Like a Pro</p>
+                <small class="text-muted">1.2k views</small>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <h5>Instagram Feed</h5>
+            <div class="row g-2 insta-feed pt-3">
+              <div class="col-4"><img src="https://images.pexels.com/photos/8580765/pexels-photo-8580765.jpeg"
+                  alt="Image">
+              </div>
+              <div class="col-4"><img
+                  src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?auto=format&fit=crop&w=300&q=80"
+                  alt="Image"></div>
+              <div class="col-4"><img src="https://images.pexels.com/photos/27638609/pexels-photo-27638609.jpeg"
+                  alt="Image">
+              </div>
+              <div class="col-4"><img
+                  src="https://images.unsplash.com/photo-1503341455253-b2e723bb3dbb?auto=format&fit=crop&w=300&q=80"
+                  alt="Image"></div>
+              <div class="col-4"><img
+                  src="https://images.unsplash.com/photo-1551028719-00167b16eac5?auto=format&fit=crop&w=300&q=80"
+                  alt="Image"></div>
+              <div class="col-4"><img
+                  src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=300&q=80"
+                  alt="Image"></div>
+              <div class="col-4"><img src="https://images.pexels.com/photos/8454347/pexels-photo-8454347.jpeg"
+                  alt="Image">
+              </div>
+              <div class="col-4"><img src="https://images.pexels.com/photos/5705067/pexels-photo-5705067.jpeg"
+                  alt="Image"></div>
+              <div class="col-4"><img src="https://images.pexels.com/photos/9218538/pexels-photo-9218538.jpeg"
+                  alt="Image">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  </section>
+  <section class="newsletter">
+    <div class="container container-narrow">
+      <div class="card-fn p-5 rounded-3 shadow text-center">
+        <h3 class="mb-2">Join the List</h3>
+        <p class="section-sub" style="color: black;">Be the first to know about new looks, exclusive tips & chic drops.
+        </p>
+        <form class="row g-2 justify-content-center">
+          <div class="col-md-5"><input class="form-control" type="email" placeholder="Enter your email"></div>
+          <div class="col-md-auto"><button class="btn btn-light px-4" type="submit">Subscribe</button></div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer class="py-4 text-center">
+    <div class="container">
+      <p class="mb-0">© 2025 Harshi’s Closet. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

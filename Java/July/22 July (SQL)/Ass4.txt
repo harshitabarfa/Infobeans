@@ -1,0 +1,68 @@
+➡️select * from student;
++------------+----------+-------+---------+-------+------------+
+| student_id | name     | class | subject | marks | exam_date  |
++------------+----------+-------+---------+-------+------------+
+|          1 | Harshita |    10 | Math    |    85 | 2023-02-10 |
+|          2 | Mayuri   |    10 | Science |    78 | 2023-03-15 |
+|          3 | Vanshika |     9 | Math    |    92 | 2023-04-20 |
+|          4 | Raksha   |     9 | Science |    80 | 2023-05-25 |
+|          5 | Shraddha |    10 | Math    |    88 | 2023-06-30 |
+|          6 | Tanishq  |     9 | Science |    75 | 2023-07-10 |
+|          7 | Yogita   |    10 | Math    |    90 | 2023-08-20 |
+|          8 | Naman    |     9 | Math    |    85 | 2023-09-15 |
+|          9 | Jayu     |    10 | Science |    82 | 2023-10-10 |
+|         10 | Jiyu     |     9 | Science |    79 | 2023-11-05 |
++------------+----------+-------+---------+-------+------------+
+
+➡️select subject, avg(marks) from student group by subject having avg(marks) > 80;
++---------+------------+
+| subject | avg(marks) |
++---------+------------+
+| Math    |    88.0000 |
++---------+------------+
+
+➡️select class, count(*) from student group by class order by class desc;
++-------+----------+
+| class | count(*) |
++-------+----------+
+|    10 |        5 |
+|     9 |        5 |
++-------+----------+
+
+➡️select subject, avg(marks) from student group by subject having avg(marks) > 85 order by avg(marks) desc;
++---------+------------+
+| subject | avg(marks) |
++---------+------------+
+| Math    |    88.0000 |
++---------+------------+
+
+➡️select name, marks from student order by marks desc limit 1;
++----------+-------+
+| name     | marks |
++----------+-------+
+| Vanshika |    92 |
++----------+-------+
+
+➡️select class, count(*) as count from student where marks > 85 group by class having count >= 2;
++-------+-------+
+| class | count |
++-------+-------+
+|    10 |     2 |
++-------+-------+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

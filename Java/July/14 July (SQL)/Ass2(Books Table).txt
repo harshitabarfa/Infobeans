@@ -1,0 +1,42 @@
+➡️use batch14;
+Database changed
+
+➡️create table Books(book_id int, title varchar(150), author varchar(100), genre varchar(50), publication_year int, price decimal(6.2), publisher varchar(100));
+Query OK, 0 rows affected (0.04 sec)
+
+➡️desc Books;
++------------------+--------------+------+-----+---------+-------+
+| Field            | Type         | Null | Key | Default | Extra |
++------------------+--------------+------+-----+---------+-------+
+| book_id          | int          | YES  |     | NULL    |       |
+| title            | varchar(150) | YES  |     | NULL    |       |
+| author           | varchar(100) | YES  |     | NULL    |       |
+| genre            | varchar(50)  | YES  |     | NULL    |       |
+| publication_year | int          | YES  |     | NULL    |       |
+| price            | decimal(6,0) | YES  |     | NULL    |       |
+| publisher        | varchar(100) | YES  |     | NULL    |       |
++------------------+--------------+------+-----+---------+-------+
+7 rows in set (0.02 sec)
+
+➡️insert into Books values(1, 'To Kill a Mockingbird', 'Harper Lee', 'Fiction', 1960, 15.99, 'J.B. Lippincott & Co.');
+Query OK, 1 row affected, 1 warning (0.01 sec)
+
+insert into Books values(2, '1984', 'George Orwell', 'Dystopian', 1949, 12.50, 'Secker & Warburg');
+Query OK, 1 row affected, 1 warning (0.01 sec)
+
+insert into Books values(3, 'The Great Gatsby', 'F. Scott Fitzgerald', 'Classic', 1925, 10.99, 'Charles Scribner\'s Sons');
+Query OK, 1 row affected, 1 warning (0.01 sec)
+
+insert into Books values(4, 'The Catcher in the Rye', 'J.D. Salinger', 'Literary Fiction', 1951, 13.45, 'Little, Brown and Company');
+Query OK, 1 row affected, 1 warning (0.01 sec)
+
+➡️select * from Books;
++---------+------------------------+---------------------+------------------+------------------+-------+---------------------------+
+| book_id | title                  | author              | genre            | publication_year | price | publisher                 |
++---------+------------------------+---------------------+------------------+------------------+-------+---------------------------+
+|       1 | To Kill a Mockingbird  | Harper Lee          | Fiction          |             1960 |    16 | J.B. Lippincott & Co.     |
+|       2 | 1984                   | George Orwell       | Dystopian        |             1949 |    13 | Secker & Warburg          |
+|       3 | The Great Gatsby       | F. Scott Fitzgerald | Classic          |             1925 |    11 | Charles Scribner's Sons   |
+|       4 | The Catcher in the Rye | J.D. Salinger       | Literary Fiction |             1951 |    13 | Little, Brown and Company |
++---------+------------------------+---------------------+------------------+------------------+-------+---------------------------+
+4 rows in set (0.00 sec)

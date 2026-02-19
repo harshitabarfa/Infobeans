@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function rotateByOne(arr) {
+            var last = arr[arr.length - 1]
+
+            for (var i = arr.length - 1; i > 0; i--) {
+                arr[i] = arr[i - 1]
+            }
+            arr[0] = last;
+            return arr;
+        }
+        document.writeln(rotateByOne([1, 2, 3, 4]))
+    </script>
+</body>
+
+</html>

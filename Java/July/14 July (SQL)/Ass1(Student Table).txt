@@ -1,0 +1,70 @@
+➡️create database batch14;
+Query OK, 1 row affected (0.02 sec)
+
+➡️show databases;
++--------------------+
+| Database           |
++--------------------+
+| batch14            |
+| college            |
+| information_schema |
+| mysql              |
+| performance_schema |
+| sys                |
++--------------------+
+6 rows in set (0.00 sec)
+
+➡️use batch14;
+Database changed
+
+➡️create table Students(id int, name varchar(100), age int, gender varchar(10), address varchar(150), phone varchar(15), email varchar(100));
+Query OK, 0 rows affected (0.10 sec)
+
+➡️show tables;
++-------------------+
+| Tables_in_batch14 |
++-------------------+
+| students          |
++-------------------+
+1 row in set (0.03 sec)
+
+➡️desc Students;
++---------+--------------+------+-----+---------+-------+
+| Field   | Type         | Null | Key | Default | Extra |
++---------+--------------+------+-----+---------+-------+
+| id      | int          | YES  |     | NULL    |       |
+| name    | varchar(100) | YES  |     | NULL    |       |
+| age     | int          | YES  |     | NULL    |       |
+| gender  | varchar(10)  | YES  |     | NULL    |       |
+| address | varchar(150) | YES  |     | NULL    |       |
+| phone   | varchar(15)  | YES  |     | NULL    |       |
+| email   | varchar(100) | YES  |     | NULL    |       |
++---------+--------------+------+-----+---------+-------+
+7 rows in set (0.02 sec)
+
+➡️insert into Students values(101, 'Harshita', 20, 'Female', 'Indore', '9752632166', 'harshitabarfa3@gmail.com');
+Query OK, 1 row affected (0.03 sec)
+
+insert into Students values(102, 'Mayuri', 17, 'Female', 'Manawar', '1234567890', 'mayuribarfa10@gmail.com');
+Query OK, 1 row affected (0.01 sec)
+
+insert into Students values(103, 'Vanshika', 13, 'Female', 'Manawar', '0987654321', 'vanshikabarfa9@gmail.com');
+Query OK, 1 row affected (0.01 sec)
+
+insert into Students values(104, 'Raksha', 10, 'Female', 'Dhar', '1234098765', 'rakshabarfa2@gmail.com');
+Query OK, 1 row affected (0.01 sec)
+
+insert into Students values(105, 'Shraddha', 23, 'Female', 'Dhar', '1092837465', 'shraddhabarfa18@gmail.com');
+Query OK, 1 row affected (0.01 sec)
+
+➡️select * from Students;
++------+----------+------+--------+---------+------------+---------------------------+
+| id   | name     | age  | gender | address | phone      | email                     |
++------+----------+------+--------+---------+------------+---------------------------+
+|  101 | Harshita |   20 | Female | Indore  | 9752632166 | harshitabarfa3@gmail.com  |
+|  102 | Mayuri   |   17 | Female | Manawar | 1234567890 | mayuribarfa10@gmail.com   |
+|  103 | Vanshika |   13 | Female | Manawar | 0987654321 | vanshikabarfa9@gmail.com  |
+|  104 | Raksha   |   10 | Female | Dhar    | 1234098765 | rakshabarfa2@gmail.com    |
+|  105 | Shraddha |   23 | Female | Dhar    | 1092837465 | shraddhabarfa18@gmail.com |
++------+----------+------+--------+---------+------------+---------------------------+
+5 rows in set (0.01 sec)

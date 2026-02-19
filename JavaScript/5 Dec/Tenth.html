@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Welcome</h1>
+
+    <script>
+        var n = 6;
+
+        for (var i = 1; i <= n; i++) {
+            let row = "";
+
+            for (var j = 1; j <= (n - i); j++) {
+                if (i <= 5) {
+                    row += "* ";
+                } else {
+                    row += " ";
+                }
+            }
+
+            for (let j = n; j >= (n - i + 1); j--) {
+                row += j + " ";
+            }
+
+            for (let j = (n - i + 2); j <= n; j++) {
+                row += j + " ";
+            }
+            document.writeln(row.trim() + "<br>");
+        }
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,127 @@
+➡️ use batch14;
+Database changed
+
+➡️create table Students1 (
+  student_id INT,
+  name VARCHAR(50),
+  age INT,
+  grade VARCHAR(5),
+  email VARCHAR(100)
+);
+
+➡️desc Students1;
++------------+--------------+------+-----+---------+-------+
+| Field      | Type         | Null | Key | Default | Extra |
++------------+--------------+------+-----+---------+-------+
+| student_id | int          | YES  |     | NULL    |       |
+| name       | varchar(50)  | YES  |     | NULL    |       |
+| age        | int          | YES  |     | NULL    |       |
+| grade      | varchar(5)   | YES  |     | NULL    |       |
+| email      | varchar(100) | YES  |     | NULL    |       |
++------------+--------------+------+-----+---------+-------+
+5 rows in set (0.02 sec)
+
+➡️insert into Students1(
+student_id, name, age, grade, email) VALUES
+(1, 'Rahul', 20, 'B', 'rahul@example.com'),
+(2, 'Anita', 19, 'A', 'anita@example.com'),
+(3, 'Suresh', 16, 'F', 'suresh@example.com'),
+(4, 'Priya', 21, 'B', 'priya@example.com'),
+(5, 'Karan', 17, 'C', 'karan@example.com'),
+(6, 'Neha', 18, 'B', 'neha@example.com');
+Query OK, 6 rows affected (0.02 sec)
+Records: 6  Duplicates: 0  Warnings: 0
+
+➡️select * from Students1;
++------------+--------+------+-------+--------------------+
+| student_id | name   | age  | grade | email              |
++------------+--------+------+-------+--------------------+
+|          1 | Rahul  |   20 | B     | rahul@example.com  |
+|          2 | Anita  |   19 | A     | anita@example.com  |
+|          3 | Suresh |   16 | F     | suresh@example.com |
+|          4 | Priya  |   21 | B     | priya@example.com  |
+|          5 | Karan  |   17 | C     | karan@example.com  |
+|          6 | Neha   |   18 | B     | neha@example.com   |
++------------+--------+------+-------+--------------------+
+6 rows in set (0.00 sec)
+
+➡️update Students1 set grade = 'A+' where age > 18 and grade = 'B';
+Query OK, 2 rows affected (0.01 sec)
+Rows matched: 2  Changed: 2  Warnings: 0
+
+➡️select * from Students1;
++------------+--------+------+-------+--------------------+
+| student_id | name   | age  | grade | email              |
++------------+--------+------+-------+--------------------+
+|          1 | Rahul  |   20 | A+    | rahul@example.com  |
+|          2 | Anita  |   19 | A     | anita@example.com  |
+|          3 | Suresh |   16 | F     | suresh@example.com |
+|          4 | Priya  |   21 | A+    | priya@example.com  |
+|          5 | Karan  |   17 | C     | karan@example.com  |
+|          6 | Neha   |   18 | B     | neha@example.com   |
++------------+--------+------+-------+--------------------+
+6 rows in set (0.00 sec)
+
+➡️delete from Students1 where age < 17 or grade = 'F';
+Query OK, 1 row affected (0.01 sec)
+
+➡️select * from Students1;
++------------+-------+------+-------+-------------------+
+| student_id | name  | age  | grade | email             |
++------------+-------+------+-------+-------------------+
+|          1 | Rahul |   20 | A+    | rahul@example.com |
+|          2 | Anita |   19 | A     | anita@example.com |
+|          4 | Priya |   21 | A+    | priya@example.com |
+|          5 | Karan |   17 | C     | karan@example.com |
+|          6 | Neha  |   18 | B     | neha@example.com  |
++------------+-------+------+-------+-------------------+
+5 rows in set (0.00 sec)
+
+➡️alter table Students1 add(city varchar(30));
+Query OK, 0 rows affected (0.03 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+➡️update Students1 set city = 'delhi' where student_id in (2,4);
+Query OK, 2 rows affected (0.01 sec)
+Rows matched: 2  Changed: 2  Warnings: 0
+
+➡️select * from Students1;
++------------+-------+------+-------+-------------------+-------+
+| student_id | name  | age  | grade | email             | city  |
++------------+-------+------+-------+-------------------+-------+
+|          1 | Rahul |   20 | A+    | rahul@example.com | NULL  |
+|          2 | Anita |   19 | A     | anita@example.com | delhi |
+|          4 | Priya |   21 | A+    | priya@example.com | delhi |
+|          5 | Karan |   17 | C     | karan@example.com | NULL  |
+|          6 | Neha  |   18 | B     | neha@example.com  | NULL  |
++------------+-------+------+-------+-------------------+-------+
+5 rows in set (0.00 sec)
+
+➡️delete from Students1 where name = 'rahul' and age = 20;
+Query OK, 1 row affected (0.01 sec)
+
+➡️select * from Students1;
++------------+-------+------+-------+-------------------+-------+
+| student_id | name  | age  | grade | email             | city  |
++------------+-------+------+-------+-------------------+-------+
+|          2 | Anita |   19 | A     | anita@example.com | delhi |
+|          4 | Priya |   21 | A+    | priya@example.com | delhi |
+|          5 | Karan |   17 | C     | karan@example.com | NULL  |
+|          6 | Neha  |   18 | B     | neha@example.com  | NULL  |
++------------+-------+------+-------+-------------------+-------+
+4 rows in set (0.00 sec)
+
+➡️alter table Students1 drop column email;
+Query OK, 0 rows affected (0.03 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+➡️select * from Students1;
++------------+-------+------+-------+-------+
+| student_id | name  | age  | grade | city  |
++------------+-------+------+-------+-------+
+|          2 | Anita |   19 | A     | delhi |
+|          4 | Priya |   21 | A+    | delhi |
+|          5 | Karan |   17 | C     | NULL  |
+|          6 | Neha  |   18 | B     | NULL  |
++------------+-------+------+-------+-------+
+4 rows in set (0.00 sec)

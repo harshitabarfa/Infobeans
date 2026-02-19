@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>TastyBook • Home</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <header>
+        <nav class="navbar container">
+            <a class="logo" href="index.html"><span class="dot"></span> TastyBook</a>
+            <input type="checkbox" id="menu-toggle">
+            <label class="hamburger" for="menu-toggle" aria-label="Toggle menu">☰</label>
+            <ul class="nav-links">
+                <li><a class="active" href="index.html">Home</a></li>
+                <li><a href="recipes.html">Recipes</a></li>
+                <li><a href="categories.html">Categories</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container section">
+        <section class="hero">
+            <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=1600&auto=format&fit=crop"
+                alt="Colorful feast">
+            <div class="inner">
+                <h1>Find your next favourite recipe 🍽️</h1>
+                <p>Simple, honest food with step-by-step guides, ingredient tables, and chef tips.</p>
+                <a class="btn" href="recipes.html">Explore Recipes</a>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Featured Recipes</h2>
+            <div class="grid grid-3">
+                <article class="card">
+                    <img src="https://i.pinimg.com/1200x/1f/10/a7/1f10a70a6e6169d0c8abb8a66821e445.jpg"
+                        alt="Avocado Toast">
+                    <div class="content">
+                        <h3>Avocado Toast</h3>
+                        <p class="muted">Crispy + creamy avo with lemon.</p>
+                        <a class="btn" href="recipes.html#avotoast">Cook this</a>
+                    </div>
+                </article>
+                <article class="card">
+                    <img src="https://i.pinimg.com/736x/50/33/7a/50337a274b4fcc96703efeda1e3d76f6.jpg"
+                        alt="Pasta Arrabbiata">
+                    <div class="content">
+                        <h3>Pasta Arrabbiata</h3>
+                        <p class="muted">Fiery garlic-tomato sauce in 20 minutes.</p>
+                        <a class="btn" href="recipes.html#pasta">Cook this</a>
+                    </div>
+                </article>
+                <article class="card">
+                    <img src="https://i.pinimg.com/736x/3c/2c/54/3c2c5464d60eedf472f904b4614b65d0.jpg"
+                        alt="Chocolate Muffins">
+                    <div class="content">
+                        <h3>Chocolate Muffins</h3>
+                        <p class="muted">Moist, rich, and dangerously good.</p>
+                        <a class="btn" href="recipes.html#muffins">Bake now</a>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section class="grid" style="gap:18px">
+            <article class="card">
+                <div class="content">
+                    <h3>Watch: Knife Skills</h3>
+                    <div style="position:relative;padding-top:56.25%;border-radius:16px;overflow:hidden">
+                        <iframe style="position:absolute;inset:0;width:100%;height:100%;border:0"
+                            src="https://www.youtube.com/embed/YrHpeEwk_-U" title="Epicurious 101 Knife Skills"
+                            allowfullscreen></iframe>
+                    </div>
+                </div>
+            </article>
+            <article class="card">
+                <div class="content">
+                    <h3>Listen: Quick Chef Tip</h3>
+                    <audio controls>
+                        <source src="Audio.mp3" type="audio/mpeg">
+                    </audio>
+                    <details style="margin-top:10px">
+                        <summary>Knife Skills Tip</summary>
+                        Always hold the knife properly with a firm grip. Keep your fingers curled under while chopping.
+                        It’s safer and makes chopping faster and precise.
+                    </details>
+                </div>
+            </article>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container footer-links">
+            <a href="https://instagram.com" target="_blank">Instagram</a>
+            <a href="https://youtube.com" target="_blank">YouTube</a>
+            <a href="mailto:hello@tastybook.example">Email</a>
+        </div>
+        <p>© 2025 TastyBook • Made with Harsita Barfa</p>
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,169 @@
+➡️create table Products1
+(
+product_id INT,
+product_name VARCHAR(50),
+price DECIMAL(10,2),
+stock_quantity INT,
+category VARCHAR(30)
+);
+Query OK, 0 rows affected (0.03 sec)
+
+
+➡️insert into Products1(product_id, product_name, price, stock_quantity, category) VALUES
+(1, 'Laptop', 28000, 2, 'Electronic'),
+(2, 'Mobile', 30000, 3, 'Electronic'),
+(3, 'Toy Car', 850.00, 0, 'Toys'),
+(4, 'Sofa Set', 18000.00, 5, 'Furniture'),
+(5, 'T-shirt', 600.00, 10, 'Fashion'),
+(6, 'Jeans', 1100.00, 15, 'Fashion'),
+(7, 'Dining Table', 22000.00, 3, 'Furniture'),
+(8, 'Smartphone', 30000.00, 8, 'Electronics');
+Query OK, 8 rows affected (0.02 sec)
+Records: 8  Duplicates: 0  Warnings: 0
+
+
+➡️select * from Products1;
++------------+--------------+----------+----------------+-------------+
+| product_id | product_name | price    | stock_quantity | category    |
++------------+--------------+----------+----------------+-------------+
+|          1 | Laptop       | 28000.00 |              2 | Electronic  |
+|          2 | Mobile       | 30000.00 |              3 | Electronic  |
+|          3 | Toy Car      |   850.00 |              0 | Toys        |
+|          4 | Sofa Set     | 18000.00 |              5 | Furniture   |
+|          5 | T-shirt      |   600.00 |             10 | Fashion     |
+|          6 | Jeans        |  1100.00 |             15 | Fashion     |
+|          7 | Dining Table | 22000.00 |              3 | Furniture   |
+|          8 | Smartphone   | 30000.00 |              8 | Electronics |
++------------+--------------+----------+----------------+-------------+
+8 rows in set (0.00 sec)
+
+
+➡️update Products1 set price = 999.99 where category = 'Toys';
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+
+➡️update Products1 set price = price * 0.1 where category = 'Electronics';
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+
+➡️update Products1 set category = 'Home decor' where product_name in ('sofa set', 'dinning table');
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+
+➡️update Products1 set stock_quantity = 100 where product_name in ('T-shirt', 'Jeans');
+Query OK, 2 rows affected (0.01 sec)
+Rows matched: 2  Changed: 2  Warnings: 0
+
+
+➡️ delete from Products1 where stock_quantity = 0 and category = 'Toys';
+Query OK, 0 rows affected (0.00 sec)
+
+
+➡️select * from Products1;
++------------+--------------+----------+----------------+-------------+
+| product_id | product_name | price    | stock_quantity | category    |
++------------+--------------+----------+----------------+-------------+
+|          1 | Laptop       | 28000.00 |              2 | Electronic  |
+|          2 | Mobile       | 30000.00 |              3 | Electronic  |
+|          4 | Sofa Set     | 18000.00 |              5 | Home decor  |
+|          5 | T-shirt      |   600.00 |            100 | Fashion     |
+|          6 | Jeans        |  1100.00 |            100 | Fashion     |
+|          7 | Dining Table | 22000.00 |              3 | Furniture   |
+|          8 | Smartphone   |  3000.00 |              8 | Electronics |
++------------+--------------+----------+----------------+-------------+
+7 rows in set (0.00 sec)
+
+
+➡️delete from Products1 where price < 1500;
+Query OK, 2 rows affected (0.01 sec)
+
+
+➡️delete from Products1 where category in('Grocery', 'Fashion');
+Query OK, 0 rows affected (0.00 sec)
+
+
+➡️alter table Products1 add(brand_name varchar(50));
+Query OK, 0 rows affected (0.03 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+
+➡️select * from Products1;
++------------+--------------+----------+----------------+-------------+------------+
+| product_id | product_name | price    | stock_quantity | category    | brand_name |
++------------+--------------+----------+----------------+-------------+------------+
+|          1 | Laptop       | 28000.00 |              2 | Electronic  | NULL       |
+|          2 | Mobile       | 30000.00 |              3 | Electronic  | NULL       |
+|          4 | Sofa Set     | 18000.00 |              5 | Home decor  | NULL       |
+|          7 | Dining Table | 22000.00 |              3 | Furniture   | NULL       |
+|          8 | Smartphone   |  3000.00 |              8 | Electronics | NULL       |
++------------+--------------+----------+----------------+-------------+------------+
+5 rows in set (0.00 sec)
+
+
+➡️UPDATE Products1
+SET brand_name = 'Samsung'
+WHERE product_name = 'LED TV';
+Query OK, 0 rows affected (0.00 sec)
+Rows matched: 0  Changed: 0  Warnings: 0
+
+
+➡️UPDATE Products1 SET brand_name = 'Dell' WHERE product_name = 'Laptop';
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+UPDATE Products1 SET brand_name = 'Samsung' WHERE product_name = 'Mobile';
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+UPDATE Products1 SET brand_name = 'Apple' WHERE product_name = 'Smartphone';
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+➡️select * from Products1;
++------------+--------------+----------+----------------+-------------+------------+
+| product_id | product_name | price    | stock_quantity | category    | brand_name |
++------------+--------------+----------+----------------+-------------+------------+
+|          1 | Laptop       | 28000.00 |              2 | Electronic  | Dell       |
+|          2 | Mobile       | 30000.00 |              3 | Electronic  | Samsung    |
+|          4 | Sofa Set     | 18000.00 |              5 | Home decor  | NULL       |
+|          7 | Dining Table | 22000.00 |              3 | Furniture   | NULL       |
+|          8 | Smartphone   |  3000.00 |              8 | Electronics | Apple      |
++------------+--------------+----------+----------------+-------------+------------+
+5 rows in set (0.00 sec)
+
+
+➡️ALTER TABLE products
+MODIFY price DECIMAL(12,4);
+Query OK, 6 rows affected (0.08 sec)
+Records: 6  Duplicates: 0  Warnings: 0
+
+
+➡️ALTER TABLE Products1
+DROP COLUMN brand_name;
+Query OK, 0 rows affected (0.03 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+
+➡️RENAME TABLE Products1 TO product_inventory;
+Query OK, 0 rows affected (0.03 sec)
+
+
+➡️select * from product_inventory;
++------------+--------------+----------+----------------+-------------+
+| product_id | product_name | price    | stock_quantity | category    |
++------------+--------------+----------+----------------+-------------+
+|          1 | Laptop       | 28000.00 |              2 | Electronic  |
+|          2 | Mobile       | 30000.00 |              3 | Electronic  |
+|          4 | Sofa Set     | 18000.00 |              5 | Home decor  |
+|          7 | Dining Table | 22000.00 |              3 | Furniture   |
+|          8 | Smartphone   |  3000.00 |              8 | Electronics |
++------------+--------------+----------+----------------+-------------+
+5 rows in set (0.01 sec)
+
+
+
+
+

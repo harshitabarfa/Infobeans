@@ -1,0 +1,48 @@
+🖋️ASS 4:
+
+➡️rename table Books to library_books;
+Query OK, 0 rows affected (0.03 sec)
+
+➡️select * from library_books;
++---------+------------------------+---------------------+------------------+------------------+-------+---------------------------+
+| book_id | title                  | author              | genre            | publication_year | price | publisher                 |
++---------+------------------------+---------------------+------------------+------------------+-------+---------------------------+
+|       1 | To Kill a Mockingbird  | Harper Lee          | Fiction          |             1960 |    16 | J.B. Lippincott & Co.     |
+|       2 | 1984                   | George Orwell       | Dystopian        |             1949 |    13 | Secker & Warburg          |
+|       3 | The Great Gatsby       | F. Scott Fitzgerald | Classic          |             1925 |    11 | Charles Scribner's Sons   |
+|       4 | The Catcher in the Rye | J.D. Salinger       | Literary Fiction |             1951 |    13 | Little, Brown and Company |
++---------+------------------------+---------------------+------------------+------------------+-------+---------------------------+
+4 rows in set (0.00 sec)
+
+
+🖋️ASS 5:
+
+➡️truncate table Students;
+Query OK, 0 rows affected (0.04 sec)
+
+➡️select * from Students;
+Empty set (0.00 sec)
+
+
+🖋️ASS 6:
+
+➡️drop table library_books;
+Query OK, 0 rows affected (0.02 sec)
+
+➡️select * from library_books;
+ERROR 1146 (42S02): Table 'batch14.library_books' doesn't exist
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

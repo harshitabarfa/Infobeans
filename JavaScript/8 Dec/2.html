@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function rearrange(arr, n) {
+            var pos = [];
+            var neg = [];
+
+            for (var i = 0; i < n; i++) {
+                if (arr[i] >= 0) pos.push(arr[i]);
+                else neg.push(arr[i]);
+            }
+
+            return pos.concat(neg);
+        }
+
+        var arr = [1, -1, 3, 2, -7, -5, 11, 6];
+        var result = rearrange(arr, arr.length);
+
+        for (var i = 0; i < result.length; i++) {
+            document.writeln(result[i] + " ");
+        }
+    </script>
+</body>
+
+</html>

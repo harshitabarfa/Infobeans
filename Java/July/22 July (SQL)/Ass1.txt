@@ -1,0 +1,130 @@
+➡️create table employe (id int primary key auto_increment, name varchar(50), department varchar(50), job_role varchar(50), salary decimal(10,2), hire_date date);
+
+➡️insert into employe (name, department, job_role, salary, hire_date) values
+('Harshita', 'HR', 'Manager', 6000.00, '2022-01-15'),
+('Mayuri', 'HR', 'Recruiter', 4000.00, '2023-03-20'),
+('Vanshika', 'IT', 'Developer', 5000.00, '2022-07-25'),
+('Raksha', 'IT', 'Developer', 5500.00, '2021-12-05'),
+('Shraddha', 'IT', 'Tester', 4500.00, '2023-06-10'),
+('Tanishq', 'IT', 'Tester', 4800.00, '2023-09-12'),
+('Yogita', 'Finance', 'Analyst', 5200.00, '2021-11-18'),
+('Naman', 'Finance', 'Analyst', 5300.00, '2022-04-30'),
+('Jayu', 'Finance', 'Manager', 7000.00, '2023-08-14'),
+('Jiyu', 'HR', 'Recruiter', 4200.00, '2022-10-05');
+
+➡️select * from employe;
++----+----------+------------+-----------+---------+------------+
+| id | name     | department | job_role  | salary  | hire_date  |
++----+----------+------------+-----------+---------+------------+
+|  1 | Harshita | HR         | Manager   | 6000.00 | 2022-01-15 |
+|  2 | Mayuri   | HR         | Recruiter | 4000.00 | 2023-03-20 |
+|  3 | Vanshika | IT         | Developer | 5000.00 | 2022-07-25 |
+|  4 | Raksha   | IT         | Developer | 5500.00 | 2021-12-05 |
+|  5 | Shraddha | IT         | Tester    | 4500.00 | 2023-06-10 |
+|  6 | Tanishq  | IT         | Tester    | 4800.00 | 2023-09-12 |
+|  7 | Yogita   | Finance    | Analyst   | 5200.00 | 2021-11-18 |
+|  8 | Naman    | Finance    | Analyst   | 5300.00 | 2022-04-30 |
+|  9 | Jayu     | Finance    | Manager   | 7000.00 | 2023-08-14 |
+| 10 | Jiyu     | HR         | Recruiter | 4200.00 | 2022-10-05 |
++----+----------+------------+-----------+---------+------------+
+
+➡️select department, count(*) as no_employe from employe group by department;
++------------+------------+
+| department | no_employe |
++------------+------------+
+| HR         |          3 |
+| IT         |          4 |
+| Finance    |          3 |
++------------+------------+
+
+➡️select job_role, avg(salary) from employe group by job_role;
++-----------+-------------+
+| job_role  | avg(salary) |
++-----------+-------------+
+| Manager   | 6500.000000 |
+| Recruiter | 4100.000000 |
+| Developer | 5250.000000 |
+| Tester    | 4650.000000 |
+| Analyst   | 5250.000000 |
++-----------+-------------+
+
+➡️select department, max(salary) from employe where department = 'IT';
++------------+-------------+
+| department | max(salary) |
++------------+-------------+
+| IT         |     5500.00 |
++------------+-------------+
+
+➡️select min(salary) from employe;
++-------------+
+| min(salary) |
++-------------+
+|     4000.00 |
++-------------+
+
+➡️select count(*) from employe where hire_date > '2023-01-01';
++----------+
+| count(*) |
++----------+
+|        4 |
++----------+
+
+➡️select department, sum(salary) from employe group by department;
++------------+-------------+
+| department | sum(salary) |
++------------+-------------+
+| HR         |    14200.00 |
+| IT         |    19800.00 |
+| Finance    |    17500.00 |
++------------+-------------+
+
+➡️select job_role, sum(salary) from employe group by job_role;
++-----------+-------------+
+| job_role  | sum(salary) |
++-----------+-------------+
+| Manager   |    13000.00 |
+| Recruiter |     8200.00 |
+| Developer |    10500.00 |
+| Tester    |     9300.00 |
+| Analyst   |    10500.00 |
++-----------+-------------+
+
+➡️select avg(salary) from employe where hire_date > '2022-12-31';
++-------------+
+| avg(salary) |
++-------------+
+| 5075.000000 |
++-------------+
+
+➡️select department, sum(salary) from employe where salary < 10000 group by department;
++------------+-------------+
+| department | sum(salary) |
++------------+-------------+
+| HR         |    14200.00 |
+| IT         |    19800.00 |
+| Finance    |    17500.00 |
++------------+-------------+
+
+➡️select department, count(*) from employe group by department order by count(*) desc;
++------------+----------+
+| department | count(*) |
++------------+----------+
+| IT         |        4 |
+| HR         |        3 |
+| Finance    |        3 |
++------------+----------+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+s

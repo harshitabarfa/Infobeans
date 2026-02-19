@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var jobs = [
+            { jobTitle: "Developer", isApplied: true, isRemote: true },
+            { jobTitle: "Designer", isApplied: false, isRemote: false },
+            { jobTitle: "Tester", isApplied: true, isRemote: false }
+        ];
+
+        jobs.forEach(job => {
+            var workType = job.isRemote ? "remote" : "in-office";
+
+            if (job.isApplied) {
+                console.log("Applied for", workType, "role:", job.jobTitle);
+            } else {
+                console.log("Haven’t applied for the", workType, "role:", job.jobTitle);
+            }
+        });
+
+    </script>
+</body>
+
+</html>

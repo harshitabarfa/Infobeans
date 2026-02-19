@@ -1,0 +1,243 @@
+package com.info.StudentManagementSystem;
+
+import java.util.List;
+import java.util.Scanner;
+
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.EntityManagerFactory;
+import jakarta.persistence.Persistence;
+import jakarta.persistence.Query;
+
+public class App {
+	public static void main(String[] args) {
+		System.out.println("Hello World!");
+
+		EntityManagerFactory factory = Persistence.createEntityManagerFactory("MyUnit");
+		EntityManager em = factory.createEntityManager();
+
+		Scanner sc = new Scanner(System.in);
+		int choice;
+
+		do {
+			System.out.println("\n---Student Management System---");
+			System.out.println("1. Insert a new Student record");
+			System.out.println("2. Display all students");
+			System.out.println("3. Find a student by id");
+			System.out.println("4. Search students by course name");
+			System.out.println("5. Update student marks by id");
+			System.out.println("6. Delete student by id");
+			System.out.println("7. Find all Students with Marks above a given value");
+			System.out.println("8. Count the number of Students enrolled in a given Course");
+			System.out.println("9. Find the Student with the highest marks");
+			System.out.println("10. Display Students enrolled after a given year");
+			System.out.println("11. Display Students in descending order of marks");
+			System.out.println("12. Find the average marks of Students in each Course");
+
+			System.out.println("\nEnter your choice: ");
+			choice = sc.nextInt();
+			sc.nextLine();
+
+			switch (choice) {
+			case 1:
+				addStudent(em, sc);
+				break;
+			case 2:
+				fetchAllStudent(em, sc);
+				break;
+			case 3:
+				findStudentById(em, sc);
+				break;
+			case 4:
+				searchStudentByCourseName(em, sc);
+				break;
+			case 5:
+				updateStudentById(em, sc);
+				break;
+			case 6:
+				deleteStudentById(em, sc);
+				break;
+			case 7:
+				findAllStudentWithMarks(em, sc);
+				break;
+			case 8:
+				countNumberOfStudent(em, sc);
+				break;
+			case 9:
+				findStudentWithHighestMarks(em, sc);
+				break;
+			case 10:
+				studentEnrolledAfterGivenYear(em, sc);
+				break;
+			case 11:
+				displayStudentInDescending(em, sc);
+				break;
+			case 12:
+				findAverageMarksOfStudent(em, sc);
+				break;
+			case 0:
+				System.out.println("Exiting...");
+				break;
+			default:
+				System.out.println("Invalid choice!");
+			}
+		} while (choice != 0);
+	}
+
+	private static void addStudent(EntityManager em, Scanner sc) {
+		System.out.println("Enter name: ");
+		String name = sc.nextLine();
+
+		System.out.println("Enter email: ");
+		String email = sc.nextLine();
+
+		System.out.println("Enter course: ");
+		String course = sc.nextLine();
+
+		System.out.println("Enter marks: ");
+		double marks = sc.nextDouble();
+		sc.nextLine();
+
+		System.out.println("Enter enrollment year: ");
+		int year = sc.nextInt();
+
+		Student2 s = new Student2();
+		s.setName(name);
+		s.setEmail(email);
+		s.setCourse(course);
+		s.setMarks(marks);
+		s.setPublishedYear(year);
+
+		em.getTransaction().begin();
+		em.persist(s);
+		em.getTransaction().commit();
+		System.out.println("Student added successfully!");
+	}
+
+	private static void fetchAllStudent(EntityManager em, Scanner sc) {
+		String q = "from Student2";
+		Query query = em.createQuery(q);
+
+		List<Student2> l = query.getResultList();
+		for (Student2 s : l) {
+			System.out.println(s);
+		}
+	}
+
+	private static void findStudentById(EntityManager em, Scanner sc) {
+		System.out.println("Enter student id: ");
+		int id = sc.nextInt();
+		sc.nextLine();
+
+		String q = "from Student2 where id = :id";
+		Query query = em.createQuery(q);
+		query.setParameter("id", id);
+		List<Student2> l = query.getResultList();
+		for (Student2 s : l) {
+			System.out.println(s);
+		}
+	}
+
+	private static void searchStudentByCourseName(EntityManager em, Scanner sc) {
+		System.out.println("Enter student course: ");
+		String course = sc.nextLine();
+
+		String q = "from Student2 where course = :course";
+		Query query = em.createQuery(q);
+		query.setParameter("course", course);
+		List<Student2> l = query.getResultList();
+		for (Student2 s : l) {
+			System.out.println(s);
+		}
+	}
+
+	private static void updateStudentById(EntityManager em, Scanner sc) {
+		em.getTransaction().begin();
+		System.out.println("Enter student id: ");
+		int id = sc.nextInt();
+		sc.nextLine();
+
+		String q = "from Student2 where id = :id";
+		Query query = em.createQuery(q);
+		query.setParameter("id", id);
+
+		Student2 s = (Student2) query.getSingleResult();
+
+		if (s != null) {
+			System.out.println("Enter new name: ");
+			String name = sc.nextLine();
+
+			System.out.println("Enter new email: ");
+			String email = sc.nextLine();
+
+			System.out.println("Enter new marks: ");
+			double marks = sc.nextDouble();
+			sc.nextLine();
+
+			System.out.println("Enter new course: ");
+			String course = sc.nextLine();
+
+			System.out.println("Enter new enrollment year: ");
+			int year = sc.nextInt();
+
+			s.setName(name);
+			s.setEmail(email);
+			s.setMarks(marks);
+			s.setCourse(course);
+			s.setPublishedYear(year);
+
+			em.getTransaction().commit();
+			System.out.println("Student updated successfully!");
+		} else {
+			System.out.println("Student not found!");
+		}
+	}
+
+	private static void deleteStudentById(EntityManager em, Scanner sc) {
+		em.getTransaction().begin();
+		System.out.println("Enter student id: ");
+		int id = sc.nextInt();
+		sc.nextLine();
+
+		String q = "delete from Student2 where id = :id";
+		Query query = em.createQuery(q);
+		query.setParameter("id", id);
+
+		int x = query.executeUpdate();
+		if (x > 0) {
+			System.out.println("Student deleted successfully!");
+		} else {
+			System.out.println("Student not found!");
+		}
+	}
+
+	private static void findAllStudentWithMarks(EntityManager em, Scanner sc) {
+		// TODO Auto-generated method stub
+
+	}
+
+	private static void countNumberOfStudent(EntityManager em, Scanner sc) {
+		// TODO Auto-generated method stub
+
+	}
+
+	private static void findStudentWithHighestMarks(EntityManager em, Scanner sc) {
+		// TODO Auto-generated method stub
+
+	}
+
+	private static void studentEnrolledAfterGivenYear(EntityManager em, Scanner sc) {
+		// TODO Auto-generated method stub
+
+	}
+
+	private static void displayStudentInDescending(EntityManager em, Scanner sc) {
+		// TODO Auto-generated method stub
+
+	}
+
+	private static void findAverageMarksOfStudent(EntityManager em, Scanner sc) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>TastyBook • Contact</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: url('https://images.unsplash.com/photo-1512058564366-18510be2db19?q=80&w=1200&auto=format&fit=crop') no-repeat center center fixed;
+            background-size: cover;
+            margin: 0;
+            padding: 0;
+            color: #000;
+        }
+
+        main.container {
+            background: linear-gradient(to bottom, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.9));
+            border-radius: 16px;
+            padding: 32px 24px;
+            max-width: 700px;
+            margin: 40px auto;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        h1,
+        h2 {
+            text-align: center;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: #000;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        input[type=text],
+        input[type=email],
+        select,
+        textarea,
+        input[type=file] {
+            padding: 12px 16px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            font-size: 1rem;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        input:focus,
+        select:focus,
+        textarea:focus {
+            outline: 2px solid #ff7043;
+        }
+
+        fieldset {
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            padding: 12px 16px;
+        }
+
+        fieldset legend {
+            font-weight: 600;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 6px;
+            font-weight: 500;
+        }
+
+        button[type=submit] {
+            padding: 14px;
+            background-color: #ff7043;
+            color: #fff;
+            font-size: 1rem;
+            font-weight: 600;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button[type=submit]:hover {
+            background-color: #ff7043;
+            transform: scale(1.02);
+        }
+
+        .recipe-preview {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 20px;
+            justify-content: center;
+        }
+
+        .recipe-preview img {
+            width: 100px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 8px;
+            transition: transform 0.3s;
+            cursor: pointer;
+        }
+
+        .recipe-preview img:hover {
+            transform: scale(1.05);
+        }
+
+        address {
+            text-align: center;
+            margin-top: 24px;
+            font-style: normal;
+        }
+
+        footer {
+            text-align: center;
+            padding: 16px;
+            color: #000;
+            background-color: rgba(255, 255, 255, 0.9);
+            margin-top: 40px;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .recipe-preview {
+                flex-wrap: wrap;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar container">
+            <a class="logo" href="index.html"><span class="dot"></span> TastyBook</a>
+            <input type="checkbox" id="menu-toggle"><label class="hamburger" for="menu-toggle">☰</label>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="recipes.html">Recipes</a></li>
+                <li><a href="categories.html">Categories</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a class="active" href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container section">
+        <h1>Suggest Your Recipe</h1>
+
+        <div class="recipe-preview">
+            <img src="https://i.pinimg.com/736x/85/a4/29/85a4293641ce6ec823da902d8d622462.jpg" alt="Breakfast"
+                alt="Breakfast">
+            <img src="https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=1200&auto=format&fit=crop"
+                alt="Lunch">
+            <img src="https://images.unsplash.com/photo-1512058564366-18510be2db19?q=80&w=1200&auto=format&fit=crop"
+                alt="Dinner">
+            <img src="https://images.unsplash.com/photo-1499636136210-6f4ee915583e?q=80&w=1200&auto=format&fit=crop"
+                alt="Dessert">
+            <img src="https://i.pinimg.com/1200x/c3/3f/9b/c33f9b083a55fb308c84d5013b66467d.jpg" alt="Snacks">
+            <img src="https://i.pinimg.com/1200x/b3/44/1b/b3441b6d5641c803d3feb7d2a1db6271.jpg" alt="Brevrages">
+        </div>
+
+        <form action="#" method="post" enctype="multipart/form-data">
+            <label for="name">Your Name</label>
+            <input id="name" name="name" type="text" placeholder="Enter your name" required />
+
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" placeholder="you@example.com" required />
+
+            <label for="rname">Recipe Name</label>
+            <input id="rname" name="rname" type="text" placeholder="e.g., Paneer Tikka" required />
+
+            <label for="rtype">Recipe Type</label>
+            <select id="rtype" name="rtype">
+                <option>Breakfast</option>
+                <option>Lunch</option>
+                <option>Dinner</option>
+                <option>Dessert</option>
+                <option>Snack</option>
+            </select>
+
+            <fieldset>
+                <legend>Diet Preference</legend>
+                <label><input type="radio" name="diet" value="veg" checked /> Veg</label>
+                <label><input type="radio" name="diet" value="non-veg" /> Non-Veg</label>
+                <label><input type="radio" name="diet" value="vegan" /> Vegan</label>
+            </fieldset>
+
+            <fieldset>
+                <legend>Allergens</legend>
+                <label><input type="checkbox" name="allergen" value="nuts" /> Nuts</label>
+                <label><input type="checkbox" name="allergen" value="dairy" /> Dairy</label>
+                <label><input type="checkbox" name="allergen" value="gluten" /> Gluten</label>
+            </fieldset>
+
+            <label for="photo">Upload Dish Photo</label>
+            <input id="photo" name="photo" type="file" accept="image/*" />
+
+            <label for="desc">Recipe Description</label>
+            <textarea id="desc" name="desc" rows="5" placeholder="Write steps, secret tips..."></textarea>
+
+            <button type="submit">Submit</button>
+        </form>
+
+        <section style="margin-top:24px">
+            <h2>Visit us</h2>
+            <address>
+                TastyBook Studio, Food Street, Indore, India<br />
+                Email: <a href="mailto:hello@tastybook.example">hello@tastybook.example</a>
+            </address>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2025 TastyBook • Contact</p>
+    </footer>
+</body>
+
+</html>

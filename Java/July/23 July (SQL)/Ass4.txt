@@ -1,0 +1,99 @@
+➡️create table student (studentId int primary key auto_increment, studentName varchar(50) not null);
+
+➡️desc student;
++-------------+-------------+------+-----+---------+----------------+
+| Field       | Type        | Null | Key | Default | Extra          |
++-------------+-------------+------+-----+---------+----------------+
+| studentId   | int         | NO   | PRI | NULL    | auto_increment |
+| studentName | varchar(50) | NO   |     | NULL    |                |
++-------------+-------------+------+-----+---------+----------------+
+
+➡️create table exam (examId int primary key auto_increment, subjectName varchar(50) not null unique);
+
+➡️desc exam;
++-------------+-------------+------+-----+---------+----------------+
+| Field       | Type        | Null | Key | Default | Extra          |
++-------------+-------------+------+-----+---------+----------------+
+| examId      | int         | NO   | PRI | NULL    | auto_increment |
+| subjectName | varchar(50) | NO   | UNI | NULL    |                |
++-------------+-------------+------+-----+---------+----------------+
+
+➡️create table result (resultId int primary key auto_increment, studentId int, examId int, foreign key(studentId) references student(studentId) on delete cascade, foreign key(examId) references exam(examId), score int not null check (score between 0 and 100));
+
+desc result;
++-----------+------+------+-----+---------+----------------+
+| Field     | Type | Null | Key | Default | Extra          |
++-----------+------+------+-----+---------+----------------+
+| resultId  | int  | NO   | PRI | NULL    | auto_increment |
+| studentId | int  | YES  | MUL | NULL    |                |
+| examId    | int  | YES  | MUL | NULL    |                |
+| score     | int  | NO   |     | NULL    |                |
++-----------+------+------+-----+---------+----------------+
+
+➡️insert into student (studentName) values ('Harshita'), ('Mayuri'), ('Vanshika');
+
+select * from student;
++-----------+-------------+
+| studentId | studentName |
++-----------+-------------+
+|         1 | Harshita    |
+|         2 | Mayuri      |
+|         3 | Vanshika    |
++-----------+-------------+
+
+➡️insert into exam (subjectName) values ('Math'), ('Physics'), ('Chemistry');
+
+select * from exam;
++--------+-------------+
+| examId | subjectName |
++--------+-------------+
+|      3 | Chemistry   |
+|      1 | Math        |
+|      2 | Physics     |
++--------+-------------+
+
+➡️insert into result (studentId, examId, score) values (1, 1, 85), (1, 2, 90), (2, 1, 75), (3, 3, 88), (2, 3, 92);
+
+select * from result;
++----------+-----------+--------+-------+
+| resultId | studentId | examId | score |
++----------+-----------+--------+-------+
+|        1 |         1 |      1 |    85 |
+|        2 |         1 |      2 |    90 |
+|        3 |         2 |      1 |    75 |
+|        4 |         3 |      3 |    88 |
+|        5 |         2 |      3 |    92 |
++----------+-----------+--------+-------+
+
+➡️delete from student where studentId = 2;
+
+select * from result;
++----------+-----------+--------+-------+
+| resultId | studentId | examId | score |
++----------+-----------+--------+-------+
+|        1 |         1 |      1 |    85 |
+|        2 |         1 |      2 |    90 |
+|        4 |         3 |      3 |    88 |
++----------+-----------+--------+-------+
+
+➡️update exam set subjectName = 'English' where examId = 2;
+
+select * from exam;
++--------+-------------+
+| examId | subjectName |
++--------+-------------+
+|      3 | Chemistry   |
+|      2 | English     |
+|      1 | Math        |
++--------+-------------+
+
+
+
+
+
+
+
+
+
+
+

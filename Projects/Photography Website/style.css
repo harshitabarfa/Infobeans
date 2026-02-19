@@ -1,0 +1,15 @@
+.hero {
+  height: 100vh;
+  background: url("../images/hero.jpg") center/cover no-repeat;
+}
+
+body {
+  font-family: "Segoe UI", sans-serif;
+}
+
+img {
+  transition: transform 0.3s ease;
+}
+img:hover {
+  transform: scale(1.05);
+}

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var nums = [4, 5, 6, 4, 6, 7, 4, 6, 5];
+
+        var frequencies = [];
+
+        for (var i = 0; i < nums.length; i++) {
+            var num = nums[i];
+            frequencies[num] = (frequencies[num] || 0) + 1;
+        }
+
+        document.writeln("Frequencies of each number: <br>");
+        for (var num in frequencies) {
+            document.writeln("Number " + num + ": " + frequencies[num] + " times<br>");
+        }
+
+        document.writeln("<br>Numbers that appear more than once: ");
+        for (var num in frequencies) {
+            if (frequencies[num] > 1) {
+                document.writeln(num + " ");
+            }
+        }
+    </script>
+</body>
+
+</html>

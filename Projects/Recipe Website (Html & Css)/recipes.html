@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>TastyBook • Recipes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <header>
+        <nav class="navbar container">
+            <a class="logo" href="index.html"><span class="dot"></span> TastyBook</a>
+            <input type="checkbox" id="menu-toggle"><label class="hamburger" for="menu-toggle">☰</label>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a class="active" href="recipes.html">Recipes</a></li>
+                <li><a href="categories.html">Categories</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container section">
+        <h1>All Recipes</h1>
+
+        <article id="pasta" class="card">
+            <img src="https://i.pinimg.com/736x/50/33/7a/50337a274b4fcc96703efeda1e3d76f6.jpg"
+                style="width:100%; height:auto; border-radius:8px;" alt="Pasta Arrabbiata">
+            <div class="content">
+                <h2>Pasta Arrabbiata</h2>
+                <div class="rating" aria-label="Rate pasta">
+                    <input type="radio" id="p5" name="pasta" value="5"><label for="p5">★</label>
+                    <input type="radio" id="p4" name="pasta" value="4"><label for="p4">★</label>
+                    <input type="radio" id="p3" name="pasta" value="3"><label for="p3">★</label>
+                    <input type="radio" id="p2" name="pasta" value="2"><label for="p2">★</label>
+                    <input type="radio" id="p1" name="pasta" value="1"><label for="p1">★</label>
+                </div>
+
+                <h3>Ingredients</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Ingredient</th>
+                            <th>Qty</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Penne pasta</td>
+                            <td>200 g</td>
+                        </tr>
+                        <tr>
+                            <td>Garlic</td>
+                            <td>3 cloves</td>
+                        </tr>
+                        <tr>
+                            <td>Chili flakes</td>
+                            <td>1 tsp</td>
+                        </tr>
+                        <tr>
+                            <td>Tomato puree</td>
+                            <td>1 cup</td>
+                        </tr>
+                        <tr>
+                            <td>Olive oil</td>
+                            <td>2 tbsp</td>
+                        </tr>
+                        <tr>
+                            <td>Salt</td>
+                            <td>to taste</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>Steps</h3>
+                <ol>
+                    <li>Boil pasta until al dente.</li>
+                    <li>Sauté garlic and chili in oil.</li>
+                    <li>Add tomato puree; simmer 8 mins.</li>
+                    <li>Toss pasta; season and serve.</li>
+                </ol>
+
+                <h3>Quick Demo</h3>
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/vxOzUCYJQ8M" title="Pasta Arrabbiata Recipe"
+                        frameborder="0" allowfullscreen></iframe>
+                </div>
+
+                <p style="margin-top:10px">
+                    Prefer visuals? <a target="_blank"
+                        href="https://www.youtube.com/results?search_query=pasta+arrabbiata+recipe">Watch more on
+                        YouTube</a>.
+                </p>
+
+                <p style="margin-top:10px">
+                    <a class="btn" href="Pasta.pdf" download="Pasta.pdf">Download PDF</a>
+                </p>
+            </div>
+        </article>
+
+        <article id="avotoast" class="card">
+            <img src="https://i.pinimg.com/1200x/1f/10/a7/1f10a70a6e6169d0c8abb8a66821e445.jpg"
+                style="width:100%; height:auto; border-radius:8px;" alt="Avocado Toast">
+            <div class="content">
+                <h2>Avocado Toast</h2>
+                <div class="rating" aria-label="Rate avocado toast">
+                    <input type="radio" id="a5" name="avo" value="5"><label for="a5">★</label>
+                    <input type="radio" id="a4" name="avo" value="4"><label for="a4">★</label>
+                    <input type="radio" id="a3" name="avo" value="3"><label for="a3">★</label>
+                    <input type="radio" id="a2" name="avo" value="2"><label for="a2">★</label>
+                    <input type="radio" id="a1" name="avo" value="1"><label for="a1">★</label>
+                </div>
+
+                <h3>Ingredients</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Ingredient</th>
+                            <th>Qty</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Sourdough bread slices</td>
+                            <td>2</td>
+                        </tr>
+                        <tr>
+                            <td>Ripe avocado</td>
+                            <td>1</td>
+                        </tr>
+                        <tr>
+                            <td>Lemon</td>
+                            <td>½</td>
+                        </tr>
+                        <tr>
+                            <td>Salt & pepper</td>
+                            <td>to taste</td>
+                        </tr>
+                        <tr>
+                            <td>Chili flakes (optional)</td>
+                            <td>½ tsp</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>Steps</h3>
+                <ol>
+                    <li>Toast bread until crisp.</li>
+                    <li>Mash avocado with lemon juice.</li>
+                    <li>Spread on toast, season, top with chili flakes.</li>
+                </ol>
+
+                <h3>Quick Demo</h3>
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/Qo4JOrJ_pVM" title="Avocado Toast Recipe" frameborder="0"
+                        allowfullscreen></iframe>
+                </div>
+
+                <p style="margin-top:10px">
+                    Prefer visuals? <a target="_blank"
+                        href="https://www.youtube.com/results?search_query=avocado+toast+recipe">Watch more on
+                        YouTube</a>.
+                </p>
+
+                <p style="margin-top:10px">
+                    <a class="btn" href="Toast.pdf" download="Toast.pdf">Download PDF</a>
+                </p>
+            </div>
+        </article>
+
+        <article id="muffins" class="card">
+            <img src="https://i.pinimg.com/736x/3c/2c/54/3c2c5464d60eedf472f904b4614b65d0.jpg"
+                style="width:100%; height:auto; border-radius:8px;" alt="Chocolate Muffins">
+            <div class="content">
+                <h2>Chocolate Muffins</h2>
+                <div class="rating" aria-label="Rate chocolate muffins">
+                    <input type="radio" id="m5" name="muffins" value="5"><label for="m5">★</label>
+                    <input type="radio" id="m4" name="muffins" value="4"><label for="m4">★</label>
+                    <input type="radio" id="m3" name="muffins" value="3"><label for="m3">★</label>
+                    <input type="radio" id="m2" name="muffins" value="2"><label for="m2">★</label>
+                    <input type="radio" id="m1" name="muffins" value="1"><label for="m1">★</label>
+                </div>
+
+                <h3>Ingredients</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Ingredient</th>
+                            <th>Qty</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>All-purpose flour</td>
+                            <td>1 cup</td>
+                        </tr>
+                        <tr>
+                            <td>Cocoa powder</td>
+                            <td>¼ cup</td>
+                        </tr>
+                        <tr>
+                            <td>Sugar</td>
+                            <td>½ cup</td>
+                        </tr>
+                        <tr>
+                            <td>Milk</td>
+                            <td>½ cup</td>
+                        </tr>
+                        <tr>
+                            <td>Egg</td>
+                            <td>1</td>
+                        </tr>
+                        <tr>
+                            <td>Butter</td>
+                            <td>50 g</td>
+                        </tr>
+                        <tr>
+                            <td>Chocolate chips</td>
+                            <td>¼ cup</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>Steps</h3>
+                <ol>
+                    <li>Preheat oven to 180°C (350°F).</li>
+                    <li>Mix dry ingredients in a bowl.</li>
+                    <li>Add wet ingredients and mix gently.</li>
+                    <li>Fold in chocolate chips.</li>
+                    <li>Pour into muffin cups and bake 20-25 mins.</li>
+                </ol>
+
+                <h3>Quick Demo</h3>
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/rFusY3wgYXQ" title="Chocolate Muffins Recipe"
+                        frameborder="0" allowfullscreen></iframe>
+                </div>
+
+                <p style="margin-top:10px">
+                    Prefer visuals? <a target="_blank"
+                        href="https://www.youtube.com/results?search_query=chocolate+muffins+recipe">Watch more on
+                        YouTube</a>.
+                </p>
+
+                <p style="margin-top:10px">
+                    <a class="btn" href="Muffins.pdf" download="Muffins.pdf">Download
+                        PDF</a>
+                </p>
+            </div>
+        </article>
+
+    </main>
+
+    <footer>
+        <p>© 2025 TastyBook • Recipes</p>
+    </footer>
+</body>
+
+</html>

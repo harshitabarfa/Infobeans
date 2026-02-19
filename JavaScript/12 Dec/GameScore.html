@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function addScore(scores, newScore) {
+            scores.push(newScore);
+            return scores;
+        }
+
+        let removeScore = function (scores, scoreToRemove) {
+            return scores.filter(score => score !== scoreToRemove)
+        }
+
+        let isHighScore = (score) => score >= 80;
+
+        function calculateTotalScore(scores) {
+            return scores.reduce((sum, s) => sum + s, 0);
+        }
+
+        function applyBonus(scores, bonus = 5) {
+            return scores.map(score => score + bonus);
+        }
+
+        function addMultipleScores(scores, ...newScores) {
+            newScores.forEach(s => scores.push(s));
+            return scores;
+        }
+
+        let scores = [70, 85, 60];
+        addScore(scores, 90);
+
+        scores = removeScore(scores, 60);
+        
+        console.log("Is 85 a high score?", isHighScore(85));
+
+        let total = calculateTotalScore(scores);
+        console.log("Total Score:", total);
+
+        let bonusScores = applyBonus(scores, 10);
+        console.log("Scores with Bonus:", bonusScores);
+
+        addMultipleScores(scores, 50, 95, 88);
+        console.log("Updated Scores:", scores);
+
+    </script>
+</body>
+
+</html>

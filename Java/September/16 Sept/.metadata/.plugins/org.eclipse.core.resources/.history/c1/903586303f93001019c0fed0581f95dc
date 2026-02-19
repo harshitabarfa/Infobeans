@@ -1,0 +1,353 @@
+package com.info.UniversityStudent;
+
+import java.util.List;
+import java.util.Scanner;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+import org.hibernate.boot.MetadataSources;
+import org.hibernate.boot.registry.StandardServiceRegistry;
+import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
+
+public class App {
+	private static SessionFactory sf;
+
+	public static void main(String[] args) {
+		System.out.println("Hello World!");
+
+		StandardServiceRegistry registry = new StandardServiceRegistryBuilder().configure("hibernate.cfg.xml").build();
+		sf = new MetadataSources(registry).buildMetadata().buildSessionFactory();
+
+		Scanner sc = new Scanner(System.in);
+		int choice;
+
+		do {
+			System.out.println("\n---University Management Menu---");
+			System.out.println("1. Add University with Students");
+			System.out.println("2. Add Student to Existing University");
+			System.out.println("3. View All Universities with Students");
+			System.out.println("4. Update Student GPA");
+			System.out.println("5. Update University Name");
+			System.out.println("6. Delete Student by ID");
+			System.out.println("7. Delete University by ID");
+			System.out.println("8. Find Students by University Name");
+			System.out.println("9. Find University by Student Name");
+			System.out.println("10. List Students with GPA > Given Value");
+			System.out.println("11. List Universities with More than N Students");
+			System.out.println("0. Exit");
+
+			System.out.print("\nEnter your choice: ");
+			choice = sc.nextInt();
+			sc.nextLine();
+
+			switch (choice) {
+			case 1:
+				addUniversityWithStudents(sc);
+				break;
+
+			case 2:
+				addStudentToUniversity(sc);
+				break;
+
+			case 3:
+				viewAllUniversitiesWithStudents();
+				break;
+			case 4:
+				updateStudentGPA(sc);
+				break;
+			case 5:
+				updateUniversityName(sc);
+				break;
+			case 6:
+				deleteStudentById(sc);
+				break;
+			case 7:
+				deleteUniversityById(sc);
+				break;
+			case 8:
+				findStudentsByUniversityName(sc);
+				break;
+			case 9:
+				findUniversityByStudentName(sc);
+				break;
+			case 10:
+				listStudentsWithGpaGreaterThan(sc);
+				break;
+			case 11:
+				listUniversitiesWithMoreThanNStudents(sc);
+				break;
+			case 12:
+				System.out.println("Exiting...");
+				break;
+			default:
+				System.out.println("Invalid choice!");
+			}
+		} while (choice != 0);
+		sf.close();
+	}
+
+	private static void addUniversityWithStudents(Scanner sc) {
+		Session session = sf.openSession();
+		Transaction tx = session.beginTransaction();
+
+		System.out.print("Enter University Name: ");
+		String univName = sc.nextLine();
+
+		System.out.print("Enter University Location: ");
+		String location = sc.nextLine();
+
+		University u = new University();
+		u.setName(univName);
+		u.setLocation(location);
+
+		System.out.print("How many students to add? ");
+		int count = sc.nextInt();
+		sc.nextLine();
+
+		for (int i = 0; i < count; i++) {
+			System.out.print("Enter Student Name: ");
+			String name = sc.nextLine();
+
+			System.out.print("Enter Course: ");
+			String course = sc.nextLine();
+
+			System.out.print("Enter GPA: ");
+			double gpa = sc.nextDouble();
+			sc.nextLine();
+
+			Student s = new Student();
+			s.setName(name);
+			s.setCourse(course);
+			s.setGpa(gpa);
+			s.setUniversity(u);
+
+			u.getStudent().add(s);
+		}
+
+		session.persist(u);
+		tx.commit();
+		session.close();
+		System.out.println("University and students saved successfully.");
+	}
+
+	private static void addStudentToUniversity(Scanner sc) {
+		Session session = sf.openSession();
+		Transaction tx = session.beginTransaction();
+
+		System.out.print("Enter University ID: ");
+		int univId = sc.nextInt();
+		sc.nextLine();
+
+		University u = session.get(University.class, univId);
+
+		if (u != null) {
+			System.out.print("Enter Student Name: ");
+			String name = sc.nextLine();
+
+			System.out.print("Enter Course: ");
+			String course = sc.nextLine();
+
+			System.out.print("Enter GPA: ");
+			double gpa = sc.nextDouble();
+			sc.nextLine();
+
+			Student s = new Student();
+
+			s.setName(name);
+			s.setCourse(course);
+			s.setGpa(gpa);
+			s.setUniversity(u);
+
+			u.getStudent().add(s);
+			session.persist(s);
+
+			tx.commit();
+			System.out.println("Student added to university successfully.");
+		} else {
+			System.out.println("University not found.");
+		}
+
+		session.close();
+	}
+
+	private static void viewAllUniversitiesWithStudents() {
+		Session session = sf.openSession();
+		List<University> l = session.createQuery("from University", University.class).getResultList();
+
+		for (University u : l) {
+			System.out.println("\nUniversity: " + u.getName() + " | Location: " + u.getLocation());
+			for (Student s : u.getStudent()) {
+				System.out.printf(" -> Student: %s | Course: %s | GPA: %.2f\n", s.getName(), s.getCourse(), s.getGpa());
+			}
+		}
+
+		session.close();
+	}
+
+	private static void updateStudentGPA(Scanner sc) {
+		Session session = sf.openSession();
+		Transaction tx = session.beginTransaction();
+
+		System.out.print("Enter Student ID: ");
+		int id = sc.nextInt();
+		sc.nextLine();
+
+		Student s = session.get(Student.class, id);
+
+		if (s != null) {
+			System.out.print("Enter new GPA: ");
+			double newGpa = sc.nextDouble();
+			sc.nextLine();
+
+			s.setGpa(newGpa);
+			session.update(s);
+
+			tx.commit();
+			System.out.println("Student GPA updated successfully.");
+		} else {
+			System.out.println("Student not found.");
+		}
+
+		session.close();
+	}
+
+	private static void updateUniversityName(Scanner sc) {
+		Session session = sf.openSession();
+		Transaction tx = session.beginTransaction();
+
+		System.out.print("Enter University ID: ");
+		int id = sc.nextInt();
+		sc.nextLine();
+
+		University u = session.get(University.class, id);
+
+		if (u != null) {
+			System.out.print("Enter new University Name: ");
+			String newName = sc.nextLine();
+
+			u.setName(newName);
+			session.update(u);
+
+			tx.commit();
+			System.out.println("University name updated successfully.");
+		} else {
+			System.out.println("University not found.");
+		}
+
+		session.close();
+	}
+
+	private static void deleteStudentById(Scanner sc) {
+		Session session = sf.openSession();
+		Transaction tx = session.beginTransaction();
+
+		System.out.print("Enter Student ID: ");
+		int id = sc.nextInt();
+		sc.nextLine();
+
+		Student s = session.get(Student.class, id);
+
+		if (s != null) {
+			session.remove(s);
+			tx.commit();
+			System.out.println("Student deleted successfully.");
+		} else {
+			System.out.println("Student not found.");
+		}
+
+		session.close();
+	}
+
+	private static void deleteUniversityById(Scanner sc) {
+		Session session = sf.openSession();
+		Transaction tx = session.beginTransaction();
+
+		System.out.print("Enter University ID: ");
+		int id = sc.nextInt();
+		sc.nextLine();
+
+		University u = session.get(University.class, id);
+
+		if (u != null) {
+			session.remove(u);
+			tx.commit();
+			System.out.println("University and its students deleted successfully.");
+		} else {
+			System.out.println("University not found.");
+		}
+		session.close();
+	}
+
+	private static void findStudentsByUniversityName(Scanner sc) {
+		Session session = sf.openSession();
+
+		System.out.print("Enter University Name: ");
+		String name = sc.nextLine();
+
+		List<Student> s = session.createQuery("from Student where university.name = :name", Student.class)
+				.setParameter("name", name).getResultList();
+
+		for (Student st : s) {
+			System.out.printf("Student: %s | Course: %s | GPA: %.2f\n", st.getName(), st.getCourse(), st.getGpa());
+		}
+
+		session.close();
+	}
+
+	private static void findUniversityByStudentName(Scanner sc) {
+		Session session = sf.openSession();
+
+		System.out.print("Enter Student Name: ");
+		String name = sc.nextLine();
+
+		University university = session
+				.createQuery("select university from Student where name = :name", University.class)
+				.setParameter("name", name).uniqueResult();
+
+		if (university != null) {
+			System.out.printf("University: %s | Location: %s\n", university.getName(), university.getLocation());
+		} else {
+			System.out.println("Student or University not found.");
+		}
+
+		session.close();
+	}
+
+	private static void listStudentsWithGpaGreaterThan(Scanner sc) {
+		Session session = sf.openSession();
+
+		System.out.print("Enter minimum GPA: ");
+		double Gpa = sc.nextDouble();
+		sc.nextLine();
+
+		List<Student> students = session.createQuery("from Student where gpa > :Gpa", Student.class)
+				.setParameter("Gpa", Gpa).getResultList();
+
+		for (Student s : students) {
+			System.out.printf("Student: %s | Course: %s | GPA: %.2f | University: %s\n", s.getName(), s.getCourse(),
+					s.getGpa(), s.getUniversity().getName());
+		}
+
+		session.close();
+	}
+
+	private static void listUniversitiesWithMoreThanNStudents(Scanner sc) {
+		Session session = sf.openSession();
+
+		System.out.print("Enter minimum number of students: ");
+		int n = sc.nextInt();
+		sc.nextLine();
+
+		List<University> universities = session
+				.createQuery("from University where size(u.student) > :n", University.class).setParameter("n", n)
+				.getResultList();
+
+		for (University u : universities) {
+			System.out.printf("University: %s | Location: %s | Students Count: %d\n", u.getName(), u.getLocation(),
+					u.getStudent().size());
+		}
+
+		session.close();
+	}
+}

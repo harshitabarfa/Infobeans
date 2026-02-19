@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            margin: 20px;
+        }
+
+        fieldset {
+            margin-bottom: 15px;
+            padding: 10px;
+        }
+
+        input,
+        select {
+            padding: 5px;
+        }
+
+        span {
+            color: red;
+            font-size: 14px;
+            margin-left: 10px;
+        }
+
+        input.error,
+        select.error {
+            border: 2px solid red;
+        }
+
+        input.success,
+        select.success {
+            border: 2px solid green;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Registration form</h1>
+    <form onsubmit="return validateForm()">
+        <fieldset>
+            <legend>Personal Information</legend>
+
+            Full Name:
+            <input type="text" id="fullname">
+            <span id="nameError"></span><br><br>
+
+            Date of Birth:
+            <input type="date" id="dob">
+            <span id="dobError"></span><br><br>
+
+            Gender:
+            <input type="radio" name="gender" value="male"> Male
+            <input type="radio" name="gender" id="Male"> Female
+            <span id="genderError"></span>
+        </fieldset>
+
+        <fieldset>
+            <legend>Account Details</legend>
+
+            Email:
+            <input type="text" id="email">
+            <span id="emailError"></span><br><br>
+
+            Username:
+            <input type="text" id="username">
+            <span id="usernameError"></span><br><br>
+
+            Password:
+            <input type="password" id="password">
+            <span id="passwordError"></span><br><br>
+
+            Confirm Password:
+            <input type="password" id="confirmPassword">
+            <span id="confirmPasswordError"></span>
+        </fieldset>
+
+        <fieldset>
+            <legend>Contact Information</legend>
+
+            Mobile Number:
+            <input type="text" id="mobile">
+            <span id="mobileError"></span><br><br>
+
+            Country:
+            <select id="country">
+                <option value="">Select Country</option>
+                <option>India</option>
+                <option>USA</option>
+                <option>UK</option>
+            </select>
+            <span id="countryError"></span>
+        </fieldset>
+
+        <fieldset>
+            <legend>Skills & Preferences</legend>
+
+            Skills:
+            <input type="checkbox" class="skill" value="HTML"> HTML
+            <input type="checkbox" class="skill" value="CSS"> CSS
+            <input type="checkbox" class="skill" value="JavaScript"> JavaScript
+            <span id="skillError"></span><br><br>
+
+            Experience Level:
+            <select id="experience">
+                <option value="">Select</option>
+                <option>Fresher</option>
+                <option>1-3 Years</option>
+                <option>3+ Years</option>
+            </select>
+            <span id="experienceError"></span><br><br>
+
+            Expected Salary:
+            <input type="text" id="salary">
+            <span id="salaryError"></span>
+        </fieldset>
+
+        <fieldset>
+            <input type="checkbox" id="terms"> I agree to the Terms & Conditions
+            <span id="termsError"></span>
+        </fieldset>
+
+        <br>
+        <input type="submit" value="Register">
+    </form>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,29 @@
+➡️use batch14;
+Database changed
+
+➡️ create table products(product_id int primary key, product_name varchar(100), category varchar(50), price decimal(7,2), stock_quantity int, supplier_name varchar(100), manufacture_date date, expiry_date date);
+Query OK, 0 rows affected (0.05 sec)
+
+➡️insert into products(product_id, product_name, category, price, stock_quantity, supplier_name, manufacture_date, expiry_date) values
+
+(1, 'organic apple juice', 'beverages', 3.99, 120, 'green farms co.', '2025-06-10', '2025-12-10'),
+(2, 'laptop backpack', 'accessories', 49.95, 45, 'techgear supplies', '2025-05-20', null),
+(3, 'led desk lamp', 'electronics', 25.00, 75, 'brightlight ltd.', '2025-04-15', null),
+(4, 'whole wheat bread', 'bakery', 2.50, 60, 'healthy bakes', '2025-07-10', '2025-07-17'),
+(5, 'face moisturizer', 'skincare', 15.20, 150, 'glowwell inc.', '2025-06-01', '2027-06-01'),
+(6, 'pack of aa batteries', 'electronics', 6.75, 200, 'powerplus', '2025-03-01', null);
+Query OK, 6 rows affected (0.02 sec)
+Records: 6  Duplicates: 0  Warnings: 0
+
+➡️select * from products;
++------------+----------------------+-------------+-------+----------------+-------------------+------------------+-------------+
+| product_id | product_name         | category    | price | stock_quantity | supplier_name     | manufacture_date | expiry_date |
++------------+----------------------+-------------+-------+----------------+-------------------+------------------+-------------+
+|          1 | organic apple juice  | beverages   |  3.99 |            120 | green farms co.   | 2025-06-10       | 2025-12-10  |
+|          2 | laptop backpack      | accessories | 49.95 |             45 | techgear supplies | 2025-05-20       | NULL        |
+|          3 | led desk lamp        | electronics | 25.00 |             75 | brightlight ltd.  | 2025-04-15       | NULL        |
+|          4 | whole wheat bread    | bakery      |  2.50 |             60 | healthy bakes     | 2025-07-10       | 2025-07-17  |
+|          5 | face moisturizer     | skincare    | 15.20 |            150 | glowwell inc.     | 2025-06-01       | 2027-06-01  |
+|          6 | pack of aa batteries | electronics |  6.75 |            200 | powerplus         | 2025-03-01       | NULL        |
++------------+----------------------+-------------+-------+----------------+-------------------+------------------+-------------+
+6 rows in set (0.00 sec)

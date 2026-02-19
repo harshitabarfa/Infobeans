@@ -1,0 +1,137 @@
+➡️ create table Employe3
+    -> (
+    -> id INT PRIMARY KEY AUTO_INCREMENT,
+    -> name VARCHAR(50),
+    -> age INT,
+    -> salary DECIMAL(10,2),
+    -> department VARCHAR(50)
+    -> );
+Query OK, 0 rows affected (0.03 sec)
+
+
+➡️insert into Employe3 (name, age, salary, department) values
+    -> ('Alice', 25, 50000.00, 'IT'),
+    -> ('Bob', 30, 70000.00, 'HR'),
+    -> ('Charlie', 35, 80000.00, 'Sales'),
+    -> ('David', 40, 90000.00, 'Marketing'),
+    -> ('Eva', 45, 110000.00, 'Finance'),
+    -> ('Frank', 28, 45000.00, 'IT'),
+    -> ('Grace', 50, 120000.00, 'HR'),
+    -> ('Henry', 38, 75000.00, 'Sales'),
+    -> ('Ivy', 33, 62000.00, 'IT'),
+    -> ('Jake', 29, 52000.00, 'Sales');
+Query OK, 10 rows affected (0.01 sec)
+Records: 10  Duplicates: 0  Warnings: 0
+
+
+➡️select * from Employe3;
++----+---------+------+-----------+------------+
+| id | name    | age  | salary    | department |
++----+---------+------+-----------+------------+
+|  1 | Alice   |   25 |  50000.00 | IT         |
+|  2 | Bob     |   30 |  70000.00 | HR         |
+|  3 | Charlie |   35 |  80000.00 | Sales      |
+|  4 | David   |   40 |  90000.00 | Marketing  |
+|  5 | Eva     |   45 | 110000.00 | Finance    |
+|  6 | Frank   |   28 |  45000.00 | IT         |
+|  7 | Grace   |   50 | 120000.00 | HR         |
+|  8 | Henry   |   38 |  75000.00 | Sales      |
+|  9 | Ivy     |   33 |  62000.00 | IT         |
+| 10 | Jake    |   29 |  52000.00 | Sales      |
++----+---------+------+-----------+------------+
+10 rows in set (0.00 sec)
+
+
+➡️select * from Employe3 where age in(25, 30, 35, 40, 45);
++----+---------+------+-----------+------------+
+| id | name    | age  | salary    | department |
++----+---------+------+-----------+------------+
+|  1 | Alice   |   25 |  50000.00 | IT         |
+|  2 | Bob     |   30 |  70000.00 | HR         |
+|  3 | Charlie |   35 |  80000.00 | Sales      |
+|  4 | David   |   40 |  90000.00 | Marketing  |
+|  5 | Eva     |   45 | 110000.00 | Finance    |
++----+---------+------+-----------+------------+
+5 rows in set (0.00 sec)
+
+
+➡️select * from Employe3 where salary in(30000, 50000, 70000, 100000);
++----+-------+------+----------+------------+
+| id | name  | age  | salary   | department |
++----+-------+------+----------+------------+
+|  1 | Alice |   25 | 50000.00 | IT         |
+|  2 | Bob   |   30 | 70000.00 | HR         |
++----+-------+------+----------+------------+
+2 rows in set (0.00 sec)
+
+
+➡️select * from Employe3 where department in('IT', 'HR', 'Sales');
++----+---------+------+-----------+------------+
+| id | name    | age  | salary    | department |
++----+---------+------+-----------+------------+
+|  1 | Alice   |   25 |  50000.00 | IT         |
+|  2 | Bob     |   30 |  70000.00 | HR         |
+|  3 | Charlie |   35 |  80000.00 | Sales      |
+|  6 | Frank   |   28 |  45000.00 | IT         |
+|  7 | Grace   |   50 | 120000.00 | HR         |
+|  8 | Henry   |   38 |  75000.00 | Sales      |
+|  9 | Ivy     |   33 |  62000.00 | IT         |
+| 10 | Jake    |   29 |  52000.00 | Sales      |
++----+---------+------+-----------+------------+
+8 rows in set (0.00 sec)
+
+
+➡️select * from Employe3 where age not in(22, 25, 28, 30);
++----+---------+------+-----------+------------+
+| id | name    | age  | salary    | department |
++----+---------+------+-----------+------------+
+|  3 | Charlie |   35 |  80000.00 | Sales      |
+|  4 | David   |   40 |  90000.00 | Marketing  |
+|  5 | Eva     |   45 | 110000.00 | Finance    |
+|  7 | Grace   |   50 | 120000.00 | HR         |
+|  8 | Henry   |   38 |  75000.00 | Sales      |
+|  9 | Ivy     |   33 |  62000.00 | IT         |
+| 10 | Jake    |   29 |  52000.00 | Sales      |
++----+---------+------+-----------+------------+
+7 rows in set (0.00 sec)
+
+
+➡️select * from Employe3 where salary not in(45000, 60000, 75000);
++----+---------+------+-----------+------------+
+| id | name    | age  | salary    | department |
++----+---------+------+-----------+------------+
+|  1 | Alice   |   25 |  50000.00 | IT         |
+|  2 | Bob     |   30 |  70000.00 | HR         |
+|  3 | Charlie |   35 |  80000.00 | Sales      |
+|  4 | David   |   40 |  90000.00 | Marketing  |
+|  5 | Eva     |   45 | 110000.00 | Finance    |
+|  7 | Grace   |   50 | 120000.00 | HR         |
+|  9 | Ivy     |   33 |  62000.00 | IT         |
+| 10 | Jake    |   29 |  52000.00 | Sales      |
++----+---------+------+-----------+------------+
+8 rows in set (0.00 sec)
+
+
+➡️select * from Employe3 where department not in ('Marketing', 'Finance');
++----+---------+------+-----------+------------+
+| id | name    | age  | salary    | department |
++----+---------+------+-----------+------------+
+|  1 | Alice   |   25 |  50000.00 | IT         |
+|  2 | Bob     |   30 |  70000.00 | HR         |
+|  3 | Charlie |   35 |  80000.00 | Sales      |
+|  6 | Frank   |   28 |  45000.00 | IT         |
+|  7 | Grace   |   50 | 120000.00 | HR         |
+|  8 | Henry   |   38 |  75000.00 | Sales      |
+|  9 | Ivy     |   33 |  62000.00 | IT         |
+| 10 | Jake    |   29 |  52000.00 | Sales      |
++----+---------+------+-----------+------------+
+8 rows in set (0.00 sec)
+
+
+
+
+
+
+
+
+

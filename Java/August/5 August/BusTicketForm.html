@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bus Ticket Booking Form</title>
+</head>
+
+<body>
+    <h2>Bus Ticket Booking</h2>
+    <form>
+        <label for="passenger">Passenger Name:</label><br>
+        <input type="text" id="passenger" name="passenger" required><br><br>
+
+        <label for="age">Age:</label><br>
+        <input type="number" id="age" name="age" min="1" required><br><br>
+
+        <label>Gender:</label><br>
+        <input type="radio" id="male" name="gender" value="Male">
+        <label for="male">Male</label><br>
+
+        <input type="radio" id="female" name="gender" value="Female">
+        <label for="female">Female</label><br>
+
+        <input type="radio" id="other" name="gender" value="Other">
+        <label for="other">Other</label><br><br>
+
+        <label for="source">Source:</label><br>
+        <select id="source" name="source">
+            <option value="">--Select Source--</option>
+            <option value="Delhi">Delhi</option>
+            <option value="Mumbai">Mumbai</option>
+            <option value="Bangalore">Bangalore</option>
+            <option value="Chennai">Chennai</option>
+            <option value="Kolkata">Kolkata</option>
+        </select><br><br>
+
+        <label for="destination">Destination:</label><br>
+        <select id="destination" name="destination">
+            <option value="">--Select Destination--</option>
+            <option value="Delhi">Delhi</option>
+            <option value="Mumbai">Mumbai</option>
+            <option value="Bangalore">Bangalore</option>
+            <option value="Chennai">Chennai</option>
+            <option value="Kolkata">Kolkata</option>
+        </select><br><br>
+
+        <label for="travelDate">Date of Travel:</label><br>
+        <input type="date" id="travelDate" name="travelDate" required><br><br>
+
+        <input type="submit" value="Book Ticket">
+    </form>
+</body>
+
+</html>
