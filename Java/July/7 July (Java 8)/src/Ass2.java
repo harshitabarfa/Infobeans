@@ -56,7 +56,7 @@ public class Ass2
 			System.out.print("Enter department: ");
 			String department = sc.nextLine();
 			
-			Student s = new Studnet(id, name, age, marks, department);
+			Student s = new Student(id, name, age, marks, department);
 			l.add(s);
 		}
 		
